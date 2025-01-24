@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Appointments</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+  <header class="text-gray-600 body-font bg-gradient-to-r from-indigo-500 to-indigo-600 shadow-lg">
+    <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+        <a class="flex title-font font-medium items-center text-white mb-4 md:mb-0">
+            <img src="./images/2.jpg" alt="Icon" class="w-auto h-20 text-white p-2 rounded-full transition-all hover:scale-105">
+            <span class="ml-3 text-xl font-semibold"> #####</span>
+        </a>
+        <nav class="md:ml-auto flex flex-row items-center text-base space-x-4">
+            <button onclick='window.location.href="./"'' class="p-2 bg-indigo-600 text-white rounded hover:bg-indigo-700 transition duration-300">Home</button>
+            <button onclick='window.location.href="./add-post"'class="p-2 bg-indigo-600 text-white rounded hover:bg-indigo-700 transition duration-300">###</button>
+            <button onclick='window.location.href="./appointments"'class="p-2 bg-indigo-600 text-white rounded hover:bg-indigo-700 transition duration-300">#####</button>
+            <button onclick='window.location.href="./recommendations"'class="p-2 bg-indigo-600 text-white rounded hover:bg-indigo-700 transition duration-300">#####</button>
+            <button onclick='window.location.href="./profile"'class="p-2 bg-indigo-600 text-white rounded hover:bg-indigo-700 transition duration-300">#####</button>
+
+        </nav>
+    </div>
+</header>
+
+    <hr>
+
+    <div class="container mx-auto p-5">
+        <div class="bg-white shadow-md rounded-lg p-6">
+            <!-- Appointment Form -->
+            <h2 class="text-2xl font-semibold mb-4 text-gray-800">Schedule an Appointment</h2>
+            <form action="submit.ejs">
+                <div class="mb-4">
+                    <label for="name" class="block text-sm font-medium text-gray-700">Your Name</label>
+                    <input type="text" name="name" id="name" required class="mt-1 p-2 bg-gray-100 border rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-600">
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="block text-sm font-medium text-gray-700">Your Email</label>
+                    <input type="email" name="email" id="email" required class="mt-1 p-2 bg-gray-100 border rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-600">
+                </div>
+                <div class="mb-4">
+                    <label for="date" class="block text-sm font-medium text-gray-700">Appointment Date</label>
+                    <input type="date" name="date" id="date" required class="mt-1 p-2 bg-gray-100 border rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-600">
+                </div>
+                <div class="mb-4">
+                    <label for="time" class="block text-sm font-medium text-gray-700">Appointment Time</label>
+                    <input type="time" name="time" id="time" required class="mt-1 p-2 bg-gray-100 border rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-600">
+                </div>
+                <div class="mb-4">
+                    <label for="doctor" class="block text-sm font-medium text-gray-700">type</label>
+                    <select name="doctor" id="doctor" required class="mt-1 p-2 bg-gray-100 border rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-600">
+                        <option value="Dr. Smith">Person</option>
+                        <option value="Dr. Johnson">Organization</option>
+
+                    </select>
+                </div>
+                <div class="flex justify-center">
+                    <button type="submit" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition duration-300">Schedule Appointment</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
