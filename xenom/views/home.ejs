@@ -1,25 +1,151 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Home</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eco Waste Collection Service</title>
+  <script src="https://cdn.tailwindcss.com"></script> <!-- Tailwind CDN -->
 </head>
-<body>
-  <header>
+<body class="bg-gray-50 font-sans">
+  <!-- Header Section -->
+  <header class="flex justify-between p-6 bg-green-500 text-white">
+    <div class="text-3xl font-bold">Eco Waste</div>
     <nav>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/login">Login</a></li>
-        <li><a href="/register">Register</a></li>
+      <ul class="flex space-x-4">
+        <li><a href="#" class="hover:underline">Home</a></li>
+        <li><a href="#howItWorks" class="hover:underline">How It Works</a></li>
+        <li><a href="#testimonials" class="hover:underline">Testimonials</a></li>
+        <li><a href="#footer" class="hover:underline">Contact</a></li>
       </ul>
     </nav>
   </header>
-  <main>
-    <h1>Welcome to our website!</h1>
-    <p>This is a sample home page.</p>
-  </main>
-  <footer>
-    <p>&copy; 2023 Our Website</p>
+
+  <!-- Order Text Section -->
+  <section class="lg:flex p-8 gap-8 items-center min-h-screen">
+    <div class="lg:w-1/2 text-left space-y-6">
+      <h1 class="text-4xl font-bold">Eco-friendly Waste Management</h1>
+      <p class="text-lg text-gray-700">We help you manage your waste in an eco-friendly and efficient way. Reduce, reuse, and recycle with our simple solutions.</p>
+      <button class="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700">Get Started</button>
+    </div>
+    <div class="lg:w-1/2">
+      <div id="carousel" class="w-full h-96 bg-gray-300 overflow-hidden relative">
+        <img id="carouselImage" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1563805042-7684ff735d66" alt="Waste Collection Image">
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section id="howItWorks" class="p-8 bg-green-100 min-h-screen">
+    <h2 class="text-3xl font-semibold text-center mb-6">How It Works?</h2>
+    <div class="flex justify-around space-x-6 py-16">
+      <div class="flex flex-col items-center bg-white p-6 rounded-lg shadow-lg w-1/3">
+        <img src="https://images.unsplash.com/photo-1586769852836-8e9f35e8d52a" alt="Schedule" class="mb-4">
+        <h3 class="text-xl font-semibold">Schedule</h3>
+        <p class="text-center text-gray-600">Pick a convenient time for waste pickup.</p>
+      </div>
+      <div class="flex flex-col items-center bg-white p-6 rounded-lg shadow-lg w-1/3">
+        <img src="https://images.unsplash.com/photo-1501076857620-c0e9f1d3b6c0" alt="Pickup" class="mb-4">
+        <h3 class="text-xl font-semibold">Pickup</h3>
+        <p class="text-center text-gray-600">We come to your doorstep to collect the waste.</p>
+      </div>
+      <div class="flex flex-col items-center bg-white p-6 rounded-lg shadow-lg w-1/3">
+        <img src="https://images.unsplash.com/photo-1556745757-8d76bdb6984b" alt="Payment" class="mb-4">
+        <h3 class="text-xl font-semibold">Payment</h3>
+        <p class="text-center text-gray-600">Pay easily via our secure payment gateway.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section (Decreased height) -->
+  <section class="bg-gray-200 p-8 min-h-[500px]">
+    <h2 class="text-3xl font-semibold text-center mb-6">Why Choose Us?</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 py-24">
+      <div class="bg-white p-6 rounded-lg shadow-lg">
+        <h3 class="text-xl font-semibold mb-2">Environmentally Friendly</h3>
+        <p class="text-gray-600">We follow sustainable waste management practices to protect the planet.</p>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow-lg">
+        <h3 class="text-xl font-semibold mb-2">Affordable Plans</h3>
+        <p class="text-gray-600">Our services are priced fairly to suit your budget, with no hidden fees.</p>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow-lg">
+        <h3 class="text-xl font-semibold mb-2">Convenient Service</h3>
+        <p class="text-gray-600">Schedule pickups at your convenience, and we’ll handle the rest.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section (Increased to 6 testimonials, 3 per row) -->
+<section id="testimonials" class="bg-gray-100 p-8 min-h-screen">
+    <h2 class="text-3xl font-semibold text-center mb-6">What Our Clients Say</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="flex flex-col items-center bg-white p-6 rounded-lg shadow-lg">
+        <p class="text-gray-600 italic">"Great service! They always show up on time and take care of everything."</p>
+        <h4 class="mt-4 text-xl font-semibold">John Doe</h4>
+        <p class="text-gray-500">Business Owner</p>
+      </div>
+      <div class="flex flex-col items-center bg-white p-6 rounded-lg shadow-lg">
+        <p class="text-gray-600 italic">"Convenient, eco-friendly, and reliable. Couldn't ask for better waste management."</p>
+        <h4 class="mt-4 text-xl font-semibold">Jane Smith</h4>
+        <p class="text-gray-500">Homeowner</p>
+      </div>
+      <div class="flex flex-col items-center bg-white p-6 rounded-lg shadow-lg">
+        <p class="text-gray-600 italic">"Love that they offer an environmentally conscious solution to waste collection."</p>
+        <h4 class="mt-4 text-xl font-semibold">Mary Johnson</h4>
+        <p class="text-gray-500">Sustainability Advocate</p>
+      </div>
+      <div class="flex flex-col items-center bg-white p-6 rounded-lg shadow-lg">
+        <p class="text-gray-600 italic">"A fantastic service that makes waste disposal easier and eco-friendly."</p>
+        <h4 class="mt-4 text-xl font-semibold">David Lee</h4>
+        <p class="text-gray-500">Tech Entrepreneur</p>
+      </div>
+      <div class="flex flex-col items-center bg-white p-6 rounded-lg shadow-lg">
+        <p class="text-gray-600 italic">"Efficient, reliable, and sustainable—what more could you ask for?"</p>
+        <h4 class="mt-4 text-xl font-semibold">Sarah Brown</h4>
+        <p class="text-gray-500">Family Home</p>
+      </div>
+      <div class="flex flex-col items-center bg-white p-6 rounded-lg shadow-lg">
+        <p class="text-gray-600 italic">"I love the timely pickups and the eco-conscious approach they follow."</p>
+        <h4 class="mt-4 text-xl font-semibold">Paul Miller</h4>
+        <p class="text-gray-500">Small Business Owner</p>
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- Call To Action -->
+  <section class="bg-green-600 text-white py-16 h-500">
+    <div class="text-center">
+      <h2 class="text-3xl font-semibold mb-6">Join Us in Protecting the Planet!</h2>
+      <p class="text-lg mb-8">Start managing your waste more effectively today with our easy and eco-friendly service.</p>
+      <button class="bg-white text-green-600 px-6 py-3 rounded-lg hover:bg-gray-200">Sign Up Now</button>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer id="footer" class="bg-green-600 text-white p-6">
+    <div class="flex justify-between items-center">
+      <div>&copy; 2025 Eco Waste Collection</div>
+      <div> <a href="#" class="hover:underline">Privacy Policy</a> | <a href="#" class="hover:underline">Terms of Service</a> </div>
+    </div>
   </footer>
+
+  <!-- JavaScript for Carousel -->
+  <script>
+    const images = [
+      "https://images.unsplash.com/photo-1563805042-7684ff735d66",
+      "https://images.unsplash.com/photo-1586769852836-8e9f35e8d52a",
+      "https://images.unsplash.com/photo-1501076857620-c0e9f1d3b6c0",
+      "https://images.unsplash.com/photo-1556745757-8d76bdb6984b"
+    ];
+    let currentImageIndex = 0;
+
+    function changeImage() {
+      currentImageIndex = (currentImageIndex + 1) % images.length;
+      document.getElementById('carouselImage').src = images[currentImageIndex];
+    }
+
+    setInterval(changeImage, 5000); // Change image every 5 seconds
+  </script>
 </body>
 </html>
