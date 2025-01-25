@@ -3,6 +3,25 @@
 <head>
     <title>Schedule Waste Collection</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+    <style>
+        .card {
+            width: 90%;
+            max-width: 600px;
+            margin: 0 auto;
+            animation: slideIn 0.5s ease-out;
+        }
+        
+        @keyframes slideIn {
+            0% {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
 </head>
 <body class="bg-gray-100">
     <header class="text-gray-600 body-font bg-green-200">
@@ -21,8 +40,8 @@
         </div>
     </header>
 
-    <div class="container mx-auto my-5 p-5 bg-white rounded-lg shadow-md">
-        <h2 class="text-3xl font-bold mb-4">Schedule a Waste Collection</h2>
+    <div class="container mx-auto my-5 p-5 bg-white rounded-lg shadow-md card">
+        <h2 class="text-3xl font-bold mb-4 text-center">Schedule a Waste Collection</h2>
         <form action="/schedule" method="POST" class="space-y-4">
             <div>
                 <label class="block text-gray-700">Full Name</label>
