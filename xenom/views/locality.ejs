@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Company Trash Pickup</title>
+    <title>Locality Trash Pickup</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
         .hover-underline:hover {
@@ -30,13 +30,13 @@
     </style>
 </head>
 <body class="bg-gray-100 gradient-bg fade-in">
-    <header class="text-gray-600 body-font bg-green-300">
+    <header class="text-gray-600 body-font bg-green-200">
         <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
             <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
                 <img src="https://img.icons8.com/color/96/factory.png" alt="TrashOnline Logo" class="w-10 h-10">
                 <span class="ml-3 text-2xl font-semibold">TrashOnline</span>
             </a>
-            <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+            <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center " >
                 <a class="mr-5 nav-link hover-underline" href="home">Home</a>
                 <a class="mr-5 nav-link hover-underline" href="schedule-pickup">Schedule Pickup</a>
                 <a class="mr-5 nav-link hover-underline" href="waste">Waste Details</a>
@@ -46,25 +46,25 @@
     </header>
 
     <main class="container mx-auto my-10 p-5">
-        <h1 class="text-3xl font-bold text-center text-gray-800 mb-6">Company Trash Pickup</h1>
-        <p class="text-gray-600 text-center mb-8">Fill in the details below to schedule a company trash pickup.</p>
+        <h1 class="text-3xl font-bold text-center text-gray-800 mb-6">Locality Trash Pickup</h1>
+        <p class="text-gray-600 text-center mb-8">Fill in the details below to schedule your locality trash pickup.</p>
         <form action="#" method="POST" class="w-full max-w-lg mx-auto bg-white p-6 rounded-lg shadow-lg">
             <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="company-name">Company Name</label>
-                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700" id="company-name" type="text" placeholder="Company Name" required>
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="user-name">Your Name</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700" id="user-name" type="text" placeholder="Your Name" required>
             </div>
             <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="company-address">Company Address</label>
-                <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700" id="company-address" rows="3" placeholder="Company Address" required></textarea>
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="user-address">Address</label>
+                <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700" id="user-address" rows="3" placeholder="Your Address" required></textarea>
             </div>
             <div class="mb-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="waste-type">Type of Waste</label>
                 <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700" id="waste-type" required>
-                    <option>General Waste</option>
+                    <option>Household Waste</option>
                     <option>Recyclables</option>
+                    <option>Garden Waste</option>
                     <option>Hazardous Waste</option>
                     <option>Bulk Items</option>
-                    <option>Office Paper</option>
                 </select>
             </div>
             <div class="mb-4">
@@ -81,8 +81,8 @@
                 </select>
             </div>
             <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="special-instructions">Special Instructions</label>
-                <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700" id="special-instructions" rows="3" placeholder="Any special instructions"></textarea>
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="instructions">Special Instructions</label>
+                <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700" id="instructions" rows="3" placeholder="Any special instructions"></textarea>
             </div>
             <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded" type="submit">
                 Schedule Pickup
@@ -93,37 +93,37 @@
     <footer class="text-center text-gray-600 mt-10 py-4 border-t">
         © 2025 TrashOnline. All rights reserved.
     </footer>
-
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            const form = document.querySelector("form");
-            form.addEventListener("submit", function (event) {
-                event.preventDefault();
+    const form = document.querySelector("form");
+    form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        
+        const userName = document.getElementById("user-name").value;
+        const userAddress = document.getElementById("user-address").value;
+        const wasteType = document.getElementById("waste-type").value;
+        const pickupDate = document.getElementById("pickup-date").value;
+        const pickupTime = document.getElementById("pickup-time").value;
+        const instructions = document.getElementById("instructions").value;
 
-                const companyName = document.getElementById("company-name").value;
-                const companyAddress = document.getElementById("company-address").value;
-                const wasteType = document.getElementById("waste-type").value;
-                const pickupDate = document.getElementById("pickup-date").value;
-                const pickupTime = document.getElementById("pickup-time").value;
-                const specialInstructions = document.getElementById("special-instructions").value;
+        const cardContainer = document.createElement("div");
+        cardContainer.className = "bg-white p-6 rounded-lg shadow-lg mt-6";
 
-                const cardContainer = document.createElement("div");
-                cardContainer.className = "bg-white p-6 rounded-lg shadow-lg mt-6";
+        const cardContent = `
+            <h2 class="text-xl font-bold mb-2">Pickup Details</h2>
+            <p><strong>Name:</strong> ${userName}</p>
+            <p><strong>Address:</strong> ${userAddress}</p>
+            <p><strong>Waste Type:</strong> ${wasteType}</p>
+            <p><strong>Pickup Date:</strong> ${pickupDate}</p>
+            <p><strong>Pickup Time:</strong> ${pickupTime}</p>
+            <p><strong>Instructions:</strong> ${instructions}</p>
+        `;
 
-                const cardContent = `
-                    <h2 class="text-xl font-bold mb-2">Pickup Details</h2>
-                    <p><strong>Company Name:</strong> ${companyName}</p>
-                    <p><strong>Company Address:</strong> ${companyAddress}</p>
-                    <p><strong>Waste Type:</strong> ${wasteType}</p>
-                    <p><strong>Pickup Date:</strong> ${pickupDate}</p>
-                    <p><strong>Pickup Time:</strong> ${pickupTime}</p>
-                    <p><strong>Special Instructions:</strong> ${specialInstructions}</p>
-                `;
+        cardContainer.innerHTML = cardContent;
+        document.body.appendChild(cardContainer);
+    });
+});
 
-                cardContainer.innerHTML = cardContent;
-                document.body.appendChild(cardContainer);
-            });
-        });
     </script>
 </body>
 </html>
