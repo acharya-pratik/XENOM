@@ -1,6 +1,3 @@
-
-
-
 const express = require('express');
 const ejs = require('ejs');
 const app = express();
@@ -85,7 +82,12 @@ app.get('/schedule-pickup', (req, res) => {
 app.get('/waste', (req, res) => {
     res.render('waste');
 });
-
+app.get('/blogpost', (req, res) => {
+    res.render('blogpost');
+});
+app.get('/index', (req, res) => {
+    res.render('index');
+});
 app.post('/register', async (req, res) => {
     const { name, email, password, phone, address } = req.body;
     try {
@@ -108,9 +110,7 @@ app.get('/', authMiddleware, (req, res) => {
     res.render('login');
 });
 
-app.get('/appointments', authMiddleware, (req, res) => {
-    res.render('appointments');
-});
+
 
 app.get('/home', authMiddleware, (req, res) => {
     res.render('home', { user: req.session.user });
@@ -132,7 +132,10 @@ app.get('/logout', (req, res) => {
 app.get('/index', (req, res) => {
     res.render('index');});
 
-
+    app.get('/locality', (req, res) => {
+        res.render('locality');});
+        app.get('/company', (req, res) => {
+            res.render('company');});
     app.post('/schedule', async (req, res) => {
         const { name, contact, time, location, wasteType, collectorType, weather, weight, notes } = req.body;
         await Schedule.create({ name, contact, time, location, wasteType, collectorType, weather, weight, notes });
@@ -143,22 +146,6 @@ app.get('/index', (req, res) => {
         const schedules = await Schedule.find();
         res.render('schedule', { schedules });
     });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 app.listen(3000, () => {
