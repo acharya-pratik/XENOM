@@ -36,40 +36,60 @@ app.get('/login', (req, res) => {
 });
 
 app.post('/login', async (req, res) => {
-    let { email, password } = req.body;
-    console.log('Request Body:', req.body); // Debug log
-
+    const { email, password } = req.body;
     try {
-        let loginData = await Login.findOne({ email });
-        console.log('Login Data:', loginData); // Debug log
-
-        if (loginData) {
-            console.log('Entered Password:', password);
-            console.log('Stored Hashed Password:', loginData.password);
-
-            const isPasswordMatch = (password === loginData.password);
-            console.log('Password Match:', isPasswordMatch); // Debug log
-
-            if (isPasswordMatch) {
-                const user = await User.findById(loginData.user_id);
-                console.log('User Data:', user); // Debug log
-
-                req.session.userId = user._id;
-                req.session.user = user;
-                res.redirect('/home'); // Redirect to a protected page
-            } else {
-                console.log('Invalid password for email:', email); // Debug log
-                res.render('login', { error: 'Invalid email or password' });
-            }
+        const loginData = await Login.findOne({ email });
+        if (loginData && password === loginData.password) {
+            const user = await User.findById(loginData.user_id);
+            req.session.userId = user._id;  // Store user ID in session
+            req.session.user = user;        // Store user object in session
+            res.redirect('/home');  // Redirect to /home after successful login
         } else {
-            console.log('No login data found for email:', email); // Debug log
             res.render('login', { error: 'Invalid email or password' });
         }
     } catch (err) {
-        console.error('Error during login:', err); // Error log
+        console.error(err);
         res.render('login', { error: 'An error occurred. Please try again.' });
     }
 });
+
+
+
+// app.post('/login', async (req, res) => {
+//     let { email, password } = req.body;
+//     console.log('Request Body:', req.body); // Debug log
+
+//     try {
+//         let loginData = await Login.findOne({ email });
+//         console.log('Login Data:', loginData); // Debug log
+
+//         if (loginData) {
+//             console.log('Entered Password:', password);
+//             console.log('Stored Hashed Password:', loginData.password);
+
+//             const isPasswordMatch = (password === loginData.password);
+//             console.log('Password Match:', isPasswordMatch); // Debug log
+
+//             if (isPasswordMatch) {
+//                 const user = await User.findById(loginData.user_id);
+//                 console.log('User Data:', user); // Debug log
+
+//                 req.session.userId = user._id;
+//                 req.session.user = user;
+//                 res.redirect('/home'); // Redirect to a protected page
+//             } else {
+//                 console.log('Invalid password for email:', email); // Debug log
+//                 res.render('login', { error: 'Invalid email or password' });
+//             }
+//         } else {
+//             console.log('No login data found for email:', email); // Debug log
+//             res.render('login', { error: 'Invalid email or password' });
+//         }
+//     } catch (err) {
+//         console.error('Error during login:', err); // Error log
+//         res.render('login', { error: 'An error occurred. Please try again.' });
+//     }
+// });
 
 app.get('/register', (req, res) => {
     res.render('registration');
@@ -142,7 +162,7 @@ app.get('/index', (req, res) => {
     app.post('/schedule', async (req, res) => {
         const { name, contact, time, location, wasteType, collectorType, weather, weight, notes } = req.body;
         await Schedule.create({ name, contact, time, location, wasteType, collectorType, weather, weight, notes });
-        res.redirect('/');  // Redirect back to the form after submission
+        res.redirect('/home');  // Redirect back to the form after submission
     });
     // Display Scheduled Collections
     app.get('/schedule', async (req, res) => {
