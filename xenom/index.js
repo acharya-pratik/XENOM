@@ -171,6 +171,12 @@ app.get('/index', (req, res) => {
         res.render('schedule', { schedules });
     });
 
+    app.get('/logout', (req, res) => {
+        req.logout((err) => {
+            res.redirect('/');
+        });
+    });
+
 
 app.listen(3000, () => {
     console.log('Server is running on port 3000');
