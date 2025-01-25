@@ -19,7 +19,7 @@
   <div id="main" class="min-h-screen flex flex-col">
     
     <!-- Header Section -->
-    <header id="header" class="bg-green-50 shadow-md fixed w-full z-10 ">
+    <header id="header" class="bg-green-50 shadow-md w-full z-10 ">
       <div class="container mx-auto flex items-center justify-between px-4 py-4 bg-green-50">
         
         <!-- Logo -->
@@ -42,52 +42,175 @@
       </div>
     </header>
     <div class="bg-transparent flex items-center justify-center h-auto ">
-
-      <div id="ecoTips" class="bg-green-200 text-green-900 text-lg font-semibold p-6 rounded-lg shadow-lg text-center w-3/4 md:w-1/2">
-          Loading Tips...
-      </div>
    
   </div>
+  <div class="bg-transparent flex items-center justify-center h-auto  py-3">
 
-    <div class="container px-5 mx-auto mt-8 flex justify-start">
-        <!-- Replace "ss.png" with the actual path to your image -->
-         
-       
-    
-    <!-- Hero Section -->
-    <section class="text-gray-800 body-font bg-blue-50 pt-24">
-      <div class="container px-5 mx-auto flex flex-wrap items-center">
-        
-        <!-- Text Section -->
-        <div class="lg:w-2/3 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
-          <h1 class="title-font font-medium text-5xl text-blue-900 leading-tight">
-            Sell your recyclables<br>and trash<br>
-            online in <span class="text-green-600">TrashOnline!</span>
-          </h1>
-          <p class="leading-relaxed mt-4 text-2xl font-semibold ">
-            <b>Paper - Plastics - Metals - Appliances</b>
-          </p>
-          
+    <!-- <div id="ecoTips" class="bg-transparent text-green-900 text-3xl font-semibold p-6 rounded-lg  text-center w-3/4 md:w-1/2">
+        Loading Tips...
+    </div> -->
+
+    <script>
+        const ecoTips = [
+            "Use a reusable water bottle.",
+            "Say no to plastic bags.",
+            "Turn off lights when not needed.",
+            "Use both sides of paper.",
+            "Recycle old newspapers.",
+            "Carry a cloth shopping bag.",
+            "Compost food scraps.",
+            "Donate old clothes.",
+            "Avoid plastic straws.",
+            "Use rechargeable batteries.",
+            "Reduce food waste.",
+            "Buy in bulk to reduce packaging.",
+            "Use a digital notebook.",
+            "Bring your own coffee cup.",
+            "Walk or bike instead of driving.",
+            "Use cloth napkins instead of paper.",
+            "Fix broken things instead of throwing them away.",
+            "Unplug devices when not in use.",
+            "Use bar soap instead of liquid soap.",
+            "Choose glass containers over plastic.",
+            "Say no to unnecessary receipts.",
+            "Refill water bottles instead of buying new ones.",
+            "Use a bamboo toothbrush.",
+            "Print only when needed.",
+            "Avoid disposable utensils.",
+            "Turn off the tap while brushing your teeth.",
+            "Upcycle old items.",
+            "Encourage recycling at work or school.",
+            "Plant a tree.",
+            "Teach others about reducing waste.",
+            "Use a reusable water bottle.",
+            "Say no to plastic bags.",
+            "Turn off lights when not needed.",
+            "Use both sides of paper.",
+            "Recycle old newspapers.",
+            "Carry a cloth shopping bag.",
+            "Compost food scraps.",
+            "Donate old clothes.",
+            "Avoid plastic straws.",
+            "Use rechargeable batteries.",
+            "Reduce food waste.",
+            "Buy in bulk to reduce packaging.",
+            "Use a digital notebook.",
+            "Bring your own coffee cup.",
+            "Walk or bike instead of driving.",
+            "Use cloth napkins instead of paper.",
+            "Fix broken things instead of throwing them away.",
+            "Unplug devices when not in use.",
+            "Use bar soap instead of liquid soap.",
+            "Choose glass containers over plastic.",
+            "Say no to unnecessary receipts.",
+            "Refill water bottles instead of buying new ones.",
+            "Use a bamboo toothbrush.",
+            "Print only when needed.",
+            "Avoid disposable utensils.",
+            "Turn off the tap while brushing your teeth.",
+            "Upcycle old items.",
+            "Encourage recycling at work or school.",
+            "Plant a tree.",
+            "Teach others about reducing waste.",
+            "Use energy-efficient light bulbs.",
+            "Opt for digital media instead of physical copies.",
+            "Donate or sell old furniture.",
+            "Buy clothes secondhand.",
+            "Choose products with minimal packaging.",
+            "Use rechargeable coffee pods.",
+            "Use natural fibers instead of synthetic fabrics.",
+            "Create a DIY compost bin.",
+            "Start a vegetable garden.",
+            "Use eco-friendly cleaning products.",
+            "Switch to a natural deodorant.",
+            "Reduce water usage with low-flow showerheads.",
+            "Choose eco-friendly furniture made from recycled materials.",
+            "Avoid fast fashion—buy quality, timeless items.",
+            "Participate in local clean-up events.",
+            "Buy items in bulk to minimize packaging waste.",
+            "Switch to cloth diapers instead of disposable ones.",
+            "Repurpose glass jars as storage containers.",
+            "Make your own eco-friendly cleaning products.",
+            "Avoid plastic cutlery and plates—use reusable ones.",
+            "Opt for cloth or bamboo towels instead of paper towels.",
+            "Avoid single-use razors—choose a safety razor.",
+            "Use reusable beeswax wraps instead of plastic wrap.",
+            "Repurpose old boxes for storage or shipping.",
+            "Use public transport instead of driving.",
+            "Avoid using bottled shampoo—switch to bar soap.",
+            "Use eco-friendly paint that’s low in VOCs.",
+            "Start a carpool with friends or coworkers.",
+            "Recycle e-waste properly.",
+            "Switch to natural, sustainable fabrics like organic cotton.",
+            "Use eco-friendly diapers or cloth diapers.",
+            "Practice minimalism—don’t buy things you don’t need.",
+            "Reduce your meat consumption for a lower carbon footprint.",
+            "Choose products made with sustainably sourced wood.",
+            "Avoid products with excessive plastic packaging.",
+            "Grow your own herbs instead of buying them.",
+            "Use online banking instead of paper checks.",
+            "Make use of old paper by turning it into art or notes.",
+            "Use natural pest control methods in your garden.",
+            "Avoid single-use plastic in the kitchen by using glass containers.",
+            "Bring your own containers for takeout food.",
+            "Use digital documents instead of printing.",
+            "Repair items instead of replacing them.",
+            "Try DIY repairs for household items.",
+            "Choose products with biodegradable materials.",
+            "Use a clothesline instead of a dryer to save energy.",
+            "Support companies that focus on sustainability.",
+            "Join a local food co-op or bulk buying group.",
+            "Buy organic, locally produced food to reduce transportation emissions.",
+            "Support businesses that use renewable energy.",
+            "Invest in a solar-powered charger.",
+            "Use eco-friendly toothpaste with no plastic packaging.",
+            "Opt for a stainless steel razor instead of disposable razors.",
+            "Switch to eco-friendly cleaning products.",
+            "Use cloth napkins instead of paper napkins.",
+            "Buy products made from recycled materials.",
+            "Repair or restore old electronics instead of buying new ones.",
+            "Choose renewable energy sources for your home.",
+            "Support local farmers by buying seasonal produce.",
+            "Use reusable silicone bags instead of plastic ones.",
+            "Participate in community clean-up events and encourage others to join."
+        ];
+
+        function updateTip() {
+            const tipIndex = Math.floor(Math.random() * ecoTips.length);
+            document.getElementById("ecoTips").innerText = ecoTips[tipIndex];
+        }
+
+        // Initial call and setting interval to update every 5 seconds
+        updateTip();
+        setInterval(updateTip, 5000);
+    </script>
+</div>
+
+<div class="container px-5 mx-auto mt-8 flex justify-start">
+
+    <section class="text-gray-800 body-font bg-blue-50 pt-0">
+        <div class="container px-5 mx-auto flex flex-wrap items-center">
+
+            <div class="lg:w-2/3 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
+                <h1 class="title-font font-medium text-5xl text-blue-900 leading-tight">
+                    Sell your recyclables <br>and trash<br>
+                    online in <span class="text-green-600">TrashOnline!</span>
+                </h1>
+                <p class="leading-relaxed mt-4 text-2xl font-semibold">
+                    <b>Paper - Plastics - Metals - Appliances</b>
+                </p>
+            </div>
+
+            <div>
+                <img src="./images/logo.webp" alt="Recycling Process"
+                     class="rounded-lg shadow-lg object-cover"
+                     style="width: 100%; max-width: 1000px; height: auto; margin-top: 20px;">
+            </div>
+
         </div>
-
-    
-<div> <img src="./images/logo.webp" alt="Recycling Process" 
-        class="rounded-lg shadow-lg" 
-        style="width: 1000px; height: 400px; margin-top: 20px;"></div>
-       
- </div>
-
- 
-       
-
-      <!-- Image Section -->
-       
-      
     </section>
 
-  
-  </div>
-</body>
+</div>
 
 <section class="text-gray-600 body-font">
     <div class="container px-5 py-24 mx-auto">
