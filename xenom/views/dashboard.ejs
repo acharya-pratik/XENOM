@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Business Dashboard - TrashOnline</title>
+    <title>Subscription Dashboard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
     <style>
+        /* Existing styles ... */
+
         .card {
             margin: 20px auto;
             max-width: 800px;
@@ -20,25 +22,68 @@
             background-color: #f0faff;
         }
 
-        .subscription-card {
-            background-color: #fff7e6;
+        .subscribe-card {
+            background-color: #fff7e3;
+        }
+
+        /* Popup Styles */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            max-width: 500px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            z-index: 1000;
+        }
+
+        .popup-header {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .popup-content {
+            margin-bottom: 20px;
+        }
+
+        .popup-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
         }
     </style>
 </head>
 <body class="bg-gray-100">
     <header id="header" class="bg-green-100 shadow-md w-full z-10">
         <div class="container mx-auto flex items-center justify-between px-4 py-4 bg-green-100">
-            <!-- Logo -->
             <div id="logo" class="flex items-center space-x-2">
                 <img src="./images/ss.png" alt="Logo" class="h-10 w-10 object-cover">
                 <span class="font-bold text-lg text-gray-800">TrashOnline</span>
             </div>
-
-            <!-- Navigation Menu -->
             <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
                 <a class="mr-5 nav-link hover-underline" href="home">Home</a>
                 <a class="mr-5 nav-link hover-underline" href="index">Schedule Pickup</a>
-                <a class="mr-5 nav-link hover-underline" href="dashboard.html">Dashboard</a>
+                <a class="mr-5 nav-link hover-underline" href="waste">Waste Details</a>
+                <a class="mr-5 nav-link hover-underline" href="blogpost">Blogs</a>
+                <a class="mr-5 nav-link hover-underline" href="dashboard">Rewards and Dashboard</a>
                 <a class="mr-5 nav-link hover-underline" href="contacts">Contact Us</a>
             </nav>
         </div>
@@ -85,46 +130,75 @@
         </div>
     </div>
 
-    <!-- Subscriptions Section -->
-    <div class="container mx-auto my-5 p-5 bg-white rounded-lg shadow-md card subscription-card">
-        <h2 class="text-3xl font-bold mb-4 text-center text-yellow-500">Subscriptions</h2>
+       <!-- Subscription Section -->
+       <div class="container mx-auto my-5 p-5 bg-white rounded-lg shadow-md card subscribe-card">
+        <h2 class="text-3xl font-bold mb-4 text-center text-yellow-500">Subscription Packs</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div class="p-4 border border-gray-300 rounded bg-yellow-50">
-                <h3 class="text-xl font-semibold">Basic Plan</h3>
-                <p class="text-lg mt-2">$10/month</p>
-                <ul class="mt-2 list-disc pl-5">
-                    <li>5 Pickups per Month</li>
-                    <li>Email Support</li>
-                </ul>
-                <button class="mt-4 px-4 py-2 bg-yellow-500 text-white rounded">Subscribe</button>
+                <h3 class="text-xl font-semibold">Basic Pack</h3>
+                <p class="text-lg mt-2">NRs 500/month</p>
+                <button class="px-4 py-2 bg-yellow-500 text-white rounded mt-3" onclick="subscribe('Basic Pack')">Subscribe</button>
             </div>
             <div class="p-4 border border-gray-300 rounded bg-yellow-50">
-                <h3 class="text-xl font-semibold">Standard Plan</h3>
-                <p class="text-lg mt-2">$20/month</p>
-                <ul class="mt-2 list-disc pl-5">
-                    <li>15 Pickups per Month</li>
-                    <li>Priority Support</li>
-                    <li>Access to Analytics</li>
-                </ul>
-                <button class="mt-4 px-4 py-2 bg-yellow-500 text-white rounded">Subscribe</button>
+                <h3 class="text-xl font-semibold">Standard Pack</h3>
+                <p class="text-lg mt-2">NRs 1000/month</p>
+                <button class="px-4 py-2 bg-yellow-500 text-white rounded mt-3" onclick="subscribe('Standard Pack')">Subscribe</button>
             </div>
             <div class="p-4 border border-gray-300 rounded bg-yellow-50">
-                <h3 class="text-xl font-semibold">Premium Plan</h3>
-                <p class="text-lg mt-2">$50/month</p>
-                <ul class="mt-2 list-disc pl-5">
-                    <li>Unlimited Pickups</li>
-                    <li>Dedicated Account Manager</li>
-                    <li>Detailed Reports</li>
-                </ul>
-                <button class="mt-4 px-4 py-2 bg-yellow-500 text-white rounded">Subscribe</button>
+                <h3 class="text-xl font-semibold">Premium Pack</h3>
+                <p class="text-lg mt-2">NRs 2000/month</p>
+                <button class="px-4 py-2 bg-yellow-500 text-white rounded mt-3" onclick="subscribe('Premium Pack')">Subscribe</button>
             </div>
         </div>
+        <div id="subscribed-content" class="hidden mt-5 bg-yellow-50 p-4 rounded">
+            <h3 class="text-2xl font-bold text-yellow-600">Thank you for subscribing!</h3>
+            <p class="mt-2 text-yellow-700">You have successfully subscribed to the <span id="pack-name"></span>.</p>
+            <p class="mt-2 text-yellow-700">Enjoy exclusive benefits and content.</p>
+            <!-- Popup -->
+    <div class="overlay" id="overlay"></div>
+    <div class="popup" id="popup">
+        <span class="popup-close" onclick="closePopup()">&times;</span>
+        <div class="popup-header">Payment Successful!</div>
+        <div class="popup-content">Thank you for your payment. You have successfully subscribed to <span id="popup-pack-name"></span>.</div>
     </div>
 
     <footer class="text-gray-600 body-font bg-green-300 mt-5">
-        <div class="container mx-auto py-4 flex flex-wrap flex-col sm:flex-row">
-            <p class="text-gray-500 sm:ml-auto sm:pl-4 sm:mt-0 mt-4">TrashOnline &copy; 2025</p>
-        </div>
+       <!-- Footer content... -->
     </footer>
-</body>
-</html>
+    <script>
+        // Mock payment form script
+function processPayment() {
+    let cardNumber = document.getElementById('card-number').value;
+    let expiryDate = document.getElementById('expiry-date').value;
+    let cvv = document.getElementById('cvv').value;
+    let cardHolder = document.getElementById('card-holder').value;
+
+    if (cardNumber && expiryDate && cvv && cardHolder) {
+        showPopup(); // Show popup on simulation of successful payment
+    } else {
+        alert('Please fill out all fields.');
+    }
+}
+
+// Subscription process script
+function subscribe(packName) {
+    document.getElementById('subscribed-content').classList.remove('hidden');
+    document.getElementById('pack-name').innerText = packName;
+}
+
+// Show popup function
+function showPopup() {
+    document.getElementById('popup-pack-name').innerText = document.getElementById('pack-name').innerText;
+    document.getElementById('overlay').style.display = 'block';
+    document.getElementById('popup').style.display = 'block';
+}
+
+// Close popup function
+function closePopup() {
+    document.getElementById('overlay').style.display = 'none';
+    document.getElementById('popup').style.display = 'none';
+}
+
+    </script>
+    </body>
+    </html>

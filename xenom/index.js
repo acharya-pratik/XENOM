@@ -99,7 +99,9 @@ app.get('/register', (req, res) => {
 app.get('/schedule-pickup', (req, res) => {
     res.render('schedule-pickup');
 });
-
+app.get('/dashboard', (req, res) => {
+    res.render('dashboard');
+});
 app.get('/waste', (req, res) => {
     res.render('waste');
 });
