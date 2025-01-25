@@ -19,383 +19,219 @@
   <div id="main" class="min-h-screen flex flex-col">
     
     <!-- Header Section -->
-    <header id="header" class="bg-green-50 shadow-md w-full z-10 ">
-      <div class="container mx-auto flex items-center justify-between px-4 py-4 bg-green-50">
+    <header id="header" class="bg-green-100 shadow-md w-full z-10">
+      <div class="container mx-auto flex items-center justify-between px-4 py-4 bg-green-100">
         
         <!-- Logo -->
         <div id="logo" class="flex items-center space-x-2">
-          <!-- Change "ss.png" to your logo file path -->
-          <img src="./images/ss.png" alt="Logo" class="w-10 h-10 object-cover rounded-full">
+          <img src="./images/ss.png" alt="Logo" class="h-10 w-10 object-cover">
           <span class="font-bold text-lg text-gray-800">TrashOnline</span>
         </div>
 
         <!-- Navigation Menu -->
-      
         <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
           <a class="mr-5 nav-link hover-underline" href="home">Home</a>
           <a class="mr-5 nav-link hover-underline" href="index">Schedule Pickup</a>
           <a class="mr-5 nav-link hover-underline" href="waste">Waste Details</a>
           <a class="mr-5 nav-link hover-underline" href="blogpost">Blogs</a>
           <a class="mr-5 nav-link hover-underline" href="contacts">Contact Us</a>
-      </nav>
-          
+        </nav>
       </div>
     </header>
-    <div class="bg-transparent flex items-center justify-center h-auto ">
-   
-  </div>
-  <div class="bg-transparent flex items-center justify-center h-auto  py-3">
 
-    <!-- <div id="ecoTips" class="bg-transparent text-green-900 text-3xl font-semibold p-6 rounded-lg  text-center w-3/4 md:w-1/2">
-        Loading Tips...
-    </div> -->
-
-    <script>
-        const ecoTips = [
-            "Use a reusable water bottle.",
-            "Say no to plastic bags.",
-            "Turn off lights when not needed.",
-            "Use both sides of paper.",
-            "Recycle old newspapers.",
-            "Carry a cloth shopping bag.",
-            "Compost food scraps.",
-            "Donate old clothes.",
-            "Avoid plastic straws.",
-            "Use rechargeable batteries.",
-            "Reduce food waste.",
-            "Buy in bulk to reduce packaging.",
-            "Use a digital notebook.",
-            "Bring your own coffee cup.",
-            "Walk or bike instead of driving.",
-            "Use cloth napkins instead of paper.",
-            "Fix broken things instead of throwing them away.",
-            "Unplug devices when not in use.",
-            "Use bar soap instead of liquid soap.",
-            "Choose glass containers over plastic.",
-            "Say no to unnecessary receipts.",
-            "Refill water bottles instead of buying new ones.",
-            "Use a bamboo toothbrush.",
-            "Print only when needed.",
-            "Avoid disposable utensils.",
-            "Turn off the tap while brushing your teeth.",
-            "Upcycle old items.",
-            "Encourage recycling at work or school.",
-            "Plant a tree.",
-            "Teach others about reducing waste.",
-            "Use a reusable water bottle.",
-            "Say no to plastic bags.",
-            "Turn off lights when not needed.",
-            "Use both sides of paper.",
-            "Recycle old newspapers.",
-            "Carry a cloth shopping bag.",
-            "Compost food scraps.",
-            "Donate old clothes.",
-            "Avoid plastic straws.",
-            "Use rechargeable batteries.",
-            "Reduce food waste.",
-            "Buy in bulk to reduce packaging.",
-            "Use a digital notebook.",
-            "Bring your own coffee cup.",
-            "Walk or bike instead of driving.",
-            "Use cloth napkins instead of paper.",
-            "Fix broken things instead of throwing them away.",
-            "Unplug devices when not in use.",
-            "Use bar soap instead of liquid soap.",
-            "Choose glass containers over plastic.",
-            "Say no to unnecessary receipts.",
-            "Refill water bottles instead of buying new ones.",
-            "Use a bamboo toothbrush.",
-            "Print only when needed.",
-            "Avoid disposable utensils.",
-            "Turn off the tap while brushing your teeth.",
-            "Upcycle old items.",
-            "Encourage recycling at work or school.",
-            "Plant a tree.",
-            "Teach others about reducing waste.",
-            "Use energy-efficient light bulbs.",
-            "Opt for digital media instead of physical copies.",
-            "Donate or sell old furniture.",
-            "Buy clothes secondhand.",
-            "Choose products with minimal packaging.",
-            "Use rechargeable coffee pods.",
-            "Use natural fibers instead of synthetic fabrics.",
-            "Create a DIY compost bin.",
-            "Start a vegetable garden.",
-            "Use eco-friendly cleaning products.",
-            "Switch to a natural deodorant.",
-            "Reduce water usage with low-flow showerheads.",
-            "Choose eco-friendly furniture made from recycled materials.",
-            "Avoid fast fashion—buy quality, timeless items.",
-            "Participate in local clean-up events.",
-            "Buy items in bulk to minimize packaging waste.",
-            "Switch to cloth diapers instead of disposable ones.",
-            "Repurpose glass jars as storage containers.",
-            "Make your own eco-friendly cleaning products.",
-            "Avoid plastic cutlery and plates—use reusable ones.",
-            "Opt for cloth or bamboo towels instead of paper towels.",
-            "Avoid single-use razors—choose a safety razor.",
-            "Use reusable beeswax wraps instead of plastic wrap.",
-            "Repurpose old boxes for storage or shipping.",
-            "Use public transport instead of driving.",
-            "Avoid using bottled shampoo—switch to bar soap.",
-            "Use eco-friendly paint that’s low in VOCs.",
-            "Start a carpool with friends or coworkers.",
-            "Recycle e-waste properly.",
-            "Switch to natural, sustainable fabrics like organic cotton.",
-            "Use eco-friendly diapers or cloth diapers.",
-            "Practice minimalism—don’t buy things you don’t need.",
-            "Reduce your meat consumption for a lower carbon footprint.",
-            "Choose products made with sustainably sourced wood.",
-            "Avoid products with excessive plastic packaging.",
-            "Grow your own herbs instead of buying them.",
-            "Use online banking instead of paper checks.",
-            "Make use of old paper by turning it into art or notes.",
-            "Use natural pest control methods in your garden.",
-            "Avoid single-use plastic in the kitchen by using glass containers.",
-            "Bring your own containers for takeout food.",
-            "Use digital documents instead of printing.",
-            "Repair items instead of replacing them.",
-            "Try DIY repairs for household items.",
-            "Choose products with biodegradable materials.",
-            "Use a clothesline instead of a dryer to save energy.",
-            "Support companies that focus on sustainability.",
-            "Join a local food co-op or bulk buying group.",
-            "Buy organic, locally produced food to reduce transportation emissions.",
-            "Support businesses that use renewable energy.",
-            "Invest in a solar-powered charger.",
-            "Use eco-friendly toothpaste with no plastic packaging.",
-            "Opt for a stainless steel razor instead of disposable razors.",
-            "Switch to eco-friendly cleaning products.",
-            "Use cloth napkins instead of paper napkins.",
-            "Buy products made from recycled materials.",
-            "Repair or restore old electronics instead of buying new ones.",
-            "Choose renewable energy sources for your home.",
-            "Support local farmers by buying seasonal produce.",
-            "Use reusable silicone bags instead of plastic ones.",
-            "Participate in community clean-up events and encourage others to join."
-        ];
-
-        function updateTip() {
-            const tipIndex = Math.floor(Math.random() * ecoTips.length);
-            document.getElementById("ecoTips").innerText = ecoTips[tipIndex];
-        }
-
-        // Initial call and setting interval to update every 5 seconds
-        updateTip();
-        setInterval(updateTip, 5000);
-    </script>
-</div>
-
-<div class="container px-5 mx-auto mt-8 flex justify-start">
-
-    <section class="text-gray-800 body-font bg-blue-50 pt-0">
-        <div class="container px-5 mx-auto flex flex-wrap items-center">
-
-            <div class="lg:w-2/3 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
-                <h1 class="title-font font-medium text-5xl text-blue-900 leading-tight">
-                    Sell your recyclables <br>and trash<br>
-                    online in <span class="text-green-600">TrashOnline!</span>
-                </h1>
-                <p class="leading-relaxed mt-4 text-2xl font-semibold">
-                    <b>Paper - Plastics - Metals - Appliances</b>
-                </p>
-            </div>
-
-            <div>
-                <img src="./images/.jpg" alt="Recycling Process"
-                     class="rounded-lg shadow-lg object-cover"
-                     style="width: 100%; max-width: 1000px; height: auto; margin-top: 20px;">
-            </div>
-
+    <!-- Hero Section -->
+<div class="bg-green.50from-green-300 via-blue-300 to-purple-400 flex items-center justify-center h-screen py-3">
+    <div class="container mx-auto flex items-center justify-between px-4 py-8 md:py-16">
+      <!-- Left Side (Text) -->
+      <div class="lg:w-2/3 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
+        <h1 class="title-font font-medium text-5xl text-blue-600 leading-tight mb-4">
+          Sell your recyclables <br>and trash <br>online in <span class="text-green-400">TrashOnline!</span>
+        </h1>
+        <p class="leading-relaxed text-xl font-semibold text-gradient mb-6">
+          Paper - Plastics - Metals - Appliances
+        </p>
+        <!-- <p class="text-lg text-white mb-6">
+          Revolutionizing waste collection with the easiest way to dispose of your recyclables. Join us to make a cleaner planet today!
+        </p> -->
+        <a href="index" class="inline-flex items-center text-white bg-green-500 hover:bg-green-600 py-3 px-6 rounded-full shadow-lg transform hover:scale-105 transition-all">
+          Schedule a Pickup Now
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+            <path d="M5 12h14M12 5l7 7-7 7"></path>
+          </svg>
+        </a>
+      </div>
+  
+      <!-- Right Side (Image) -->
+      <div class="lg:w-1/3 md:w-1/2 mt-6 md:mt-0">
+        <div class="relative">
+          <img src="./images/scrap.png" alt="Recycling Process" class="rounded-lg shadow-lg object-cover transform hover:scale-110 transition-all" style="width: 100%; height: !00%;">
+          <!-- Floating Icon on Image -->
+          <div class="absolute top-5 left-5 bg-yellow-400 text-white text-3xl font-bold py-2 px-4 rounded-full shadow-lg">
+            ♻️
+          </div>
         </div>
+      </div>
+    </div>
+  </div>
+  
+
+    <!-- Our Services Section -->
+    <section class="text-gray-600 body-font">
+      <div class="container px-5 py-24 mx-auto">
+        <div class="flex flex-col">
+          <div class="h-1 bg-gray-200 rounded overflow-hidden"></div>
+          <div class="flex flex-wrap sm:flex-row flex-col py-6 mb-12">
+            <h1 class="sm:w-2/5 text-gray-900 font-medium title-font text-2xl mb-2 sm:mb-0 transition-transform transform hover:scale-105 hover:text-blue-600">Our Services</h1>
+          </div>
+        </div>
+        <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
+          <div class="p-4 md:w-1/3 sm:mb-0 mb-6">
+            <div class="rounded-lg h-64 overflow-hidden transition-transform transform hover:scale-90 hover:shadow-xl hover:border-blue-500">
+              <img alt="content" class="object-cover object-center h-full w-full" src="./images/sch.jpeg">
+            </div>
+            <h2 class="text-xl font-medium title-font text-gray-900 mt-5 transition-transform transform hover:scale-105 hover:text-blue-600">Schedule a Pickup</h2>
+            <p class="text-base leading-relaxed mt-2 transition-transform transform hover:scale-90 hover:text-blue-600">Schedule your pickup at just a click away from you.</p>
+            <a class="text-indigo-500 inline-flex items-center mt-3 transition-transform transform hover:scale-105 hover:text-blue-600">Learn More
+              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                <path d="M5 12h14M12 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+          <div class="p-4 md:w-1/3 sm:mb-0 mb-6">
+            <div class="rounded-lg h-64 overflow-hidden transition-transform transform hover:scale-90 hover:shadow-xl hover:border-blue-500">
+              <img alt="content" class="object-cover object-center h-full w-full" src="./images/s.webp">
+            </div>
+            <h2 class="text-xl font-medium title-font text-gray-900 mt-5 transition-transform transform hover:scale-105 hover:text-blue-600">Pickup at your address</h2>
+            <p class="text-base leading-relaxed mt-2 transition-transform transform hover:scale-90 hover:text-blue-600">Give your address where should we come to pickup</p>
+            <a class="text-indigo-500 inline-flex items-center mt-3 transition-transform transform hover:scale-105 hover:text-blue-600">Learn More
+              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                <path d="M5 12h14M12 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+          <div class="p-4 md:w-1/3 sm:mb-0 mb-6">
+            <div class="rounded-lg h-64 overflow-hidden transition-transform transform hover:scale-90 hover:shadow-xl hover:border-blue-500">
+              <img alt="content" class="object-cover object-center h-full w-full" src="./images/pay.jpg">
+            </div>
+            <h2 class="text-xl font-medium title-font text-gray-900 mt-5 transition-transform transform hover:scale-105 hover:text-blue-600">Payment</h2>
+            <p class="text-base leading-relaxed mt-2 transition-transform transform hover:scale-105 hover:text-blue-600">Pay online and help to keep the city clean</p>
+            <a class="text-indigo-500 inline-flex items-center mt-3 transition-transform transform hover:scale-105 hover:text-blue-600">Learn More
+              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                <path d="M5 12h14M12 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
     </section>
 
-</div>
-
-<section class="text-gray-600 body-font">
-    <div class="container px-5 py-24 mx-auto">
-      <div class="flex flex-col">
-        <div class="h-1 bg-gray-200 rounded overflow-hidden"></div>
-        <div class="flex flex-wrap sm:flex-row flex-col py-6 mb-12">
-          <h1 class="sm:w-2/5 text-gray-900 font-medium title-font text-2xl mb-2 sm:mb-0 transition-transform transform hover:scale-105 hover:text-blue-600">Our Services</h1>
-        </div>
-      </div>
-      <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
-        <div class="p-4 md:w-1/3 sm:mb-0 mb-6">
-          <div class="rounded-lg h-64 overflow-hidden transition-transform transform hover:scale-90 hover:shadow-xl hover:border-blue-500">
-            <img alt="content" class="object-cover object-center h-full w-full" src="./images/sch.jpeg">
+    <!-- Why Us Section -->
+    <section class="bg-blue-300 text-white py-16">
+      <div class="container mx-auto text-center">
+        <h2 class="text-4xl font-bold mb-12 text-black">Why Us</h2>
+        <div class="flex flex-wrap justify-center gap-8">
+          <!-- Card 1 -->
+          <div class="bg-white text-gray-800 p-6 rounded-lg shadow-lg w-72 transition-transform transform hover:scale-105 hover:shadow-2xl">
+            <img src="./images/rate.png" alt="Best Rates" class="mx-auto mb-4">
+            <h3 class="text-lg font-semibold text-center">Best Rates</h3>
+            <p class="text-sm text-center mt-2">We provide the best value for your scrap from our network of Recyclers.</p>
           </div>
-          <h2 class="text-xl font-medium title-font text-gray-900 mt-5 transition-transform transform hover:scale-105 hover:text-blue-600">Schedule a Pickup</h2>
-          <p class="text-base leading-relaxed mt-2 transition-transform transform hover:scale-90 hover:text-blue-600">Schedule your pickupn at just a click away from you.</p>
-          <a class="text-indigo-500 inline-flex items-center mt-3 transition-transform transform hover:scale-105 hover:text-blue-600">Learn More
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-              <path d="M5 12h14M12 5l7 7-7 7"></path>
-            </svg>
-          </a>
-        </div>
-        <div class="p-4 md:w-1/3 sm:mb-0 mb-6">
-          <div class="rounded-lg h-64 overflow-hidden transition-transform transform hover:scale-90 hover:shadow-xl hover:border-blue-500">
-            <img alt="content" class="object-cover object-center h-full w-full" src="./images/s.webp">
+          <!-- Card 2 -->
+          <div class="bg-white text-gray-800 p-6 rounded-lg shadow-lg w-72 transition-transform transform hover:scale-105 hover:shadow-2xl">
+            <img src="./images/ok.png" alt="Convenience" class="mx-auto mb-4">
+            <h3 class="text-lg font-semibold text-center">Convenience</h3>
+            <p class="text-sm text-center mt-2">Doorstep pickup according to user's convenient date & time.</p>
           </div>
-          <h2 class="text-xl font-medium title-font text-gray-900 mt-5 transition-transform transform hover:scale-105 hover:text-blue-600">Pickup at your address</h2>
-          <p class="text-base leading-relaxed mt-2 transition-transform transform hover:scale-90 hover:text-blue-600">Give your address where should we come to pickup</p>
-          <a class="text-indigo-500 inline-flex items-center mt-3 transition-transform transform hover:scale-105 hover:text-blue-600">Learn More
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-              <path d="M5 12h14M12 5l7 7-7 7"></path>
-            </svg>
-          </a>
-        </div>
-        <div class="p-4 md:w-1/3 sm:mb-0 mb-6">
-          <div class="rounded-lg h-64 overflow-hidden transition-transform transform hover:scale-90 hover:shadow-xl hover:border-blue-500">
-            <img alt="content" class="object-cover object-center h-full w-full" src="./images/pay.jpg">
+          <!-- Card 3 -->
+          <div class="bg-white text-gray-800 p-6 rounded-lg shadow-lg w-72 transition-transform transform hover:scale-105 hover:shadow-2xl">
+            <img src="./images/trust.png" alt="Trust" class="mx-auto mb-4">
+            <h3 class="text-lg font-semibold text-center">Trust</h3>
+            <p class="text-sm text-center mt-2">Trained & Verified Pickup Staff with Smart Weighing Scale.</p>
           </div>
-          <h2 class="text-xl font-medium title-font text-gray-900 mt-5 transition-transform transform hover:scale-105 hover:text-blue-600">Payment</h2>
-          <p class="text-base leading-relaxed mt-2 transition-transform transform hover:scale-105 hover:text-blue-600">Pay online and help to keep the city clean</p>
-          <a class="text-indigo-500 inline-flex items-center mt-3 transition-transform transform hover:scale-105 hover:text-blue-600">Learn More
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-              <path d="M5 12h14M12 5l7 7-7 7"></path>
-            </svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-
-<section class="bg-blue-300 text-white py-16">
-    <div class="container mx-auto text-center">
-      <h2 class="text-4xl font-bold mb-12 text-black">Why Us</h2>
-      <div class="flex flex-wrap justify-center gap-8">
-        <!-- Card 1 -->
-        <div class="bg-white text-gray-800 p-6 rounded-lg shadow-lg w-72 transition-transform transform hover:scale-105 hover:shadow-2xl">
-          <img src="./images/rate.png" alt="Best Rates" class="mx-auto mb-4">
-          <h3 class="text-lg font-semibold text-center">Best Rates</h3>
-          <p class="text-sm text-center mt-2">We provide the best value for your scrap from our network of Recyclers.</p>
-        </div>
-        <!-- Card 2 -->
-        <div class="bg-white text-gray-800 p-6 rounded-lg shadow-lg w-72 transition-transform transform hover:scale-105 hover:shadow-2xl">
-          <img src="./images/ok.png" alt="Convenience" class="mx-auto mb-4">
-          <h3 class="text-lg font-semibold text-center">Convenience</h3>
-          <p class="text-sm text-center mt-2">Doorstep pickup according to user's convenient date & time.</p>
-        </div>
-        <!-- Card 3 -->
-        <div class="bg-white text-gray-800 p-6 rounded-lg shadow-lg w-72 transition-transform transform hover:scale-105 hover:shadow-2xl">
-          <img src="./images/trust.png" alt="Trust" class="mx-auto mb-4">
-          <h3 class="text-lg font-semibold text-center">Trust</h3>
-          <p class="text-sm text-center mt-2">Trained & Verified Pickup Staff with Smart Weighing Scale.</p>
-        </div>
-        <!-- Card 4 -->
-        <div class="bg-white text-gray-800 p-6 rounded-lg shadow-lg w-72 transition-transform transform hover:scale-105 hover:shadow-2xl">
-          <img src="./images/eco.png" alt="Eco-friendly" class="mx-auto mb-4">
-          <h3 class="text-lg font-semibold text-center">Eco-friendly</h3>
-          <p class="text-sm text-center mt-2">We ensure responsible recycling of your scrap items.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  
-
-
-  <section class="py-16 bg-blue-50">
-    <div class="container mx-auto text-center">
-      <h2 class="text-3xl font-bold text-green-600 mb-12">
-        Households & Businesses have different needs <br>
-        and we cater to each of them
-      </h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-        <!-- For Households -->
-        <div class="text-left px-8">
-          <h3 class="text-xl font-semibold text-gray-800 mb-4">For Households</h3>
-          <ul class="space-y-4">
-            <li class="flex items-center">
-              <span class="text-green-600 text-xl mr-3">✔</span>
-              On-Demand Doorstep Pickups
-            </li>
-            <li class="flex items-center">
-              <span class="text-green-600 text-xl mr-3">✔</span>
-              Accurate Digital Weighing
-            </li>
-            <li class="flex items-center">
-              <span class="text-green-600 text-xl mr-3">✔</span>
-              Safety (Trained & Verified Staff)
-            </li>
-          </ul>
-        </div>
-        <div class="flex justify-center">
-          <img
-            src="./images/home.png"
-            alt="Households"
-            class="w-64 h-auto"
-          />
-        </div>
-        <!-- For Businesses -->
-        <div class="flex justify-center">
-          <img
-            src="./images/bus.png"
-            alt="Businesses"
-            class="w-64 h-auto"
-          />
-        </div>
-        <div class="text-left px-8">
-          <h3 class="text-xl font-semibold text-gray-800 mb-4">For Businesses</h3>
-          <ul class="space-y-4">
-            <li class="flex items-center">
-              <span class="text-green-600 text-xl mr-3">✔</span>
-              Formal Payments & Documentation
-            </li>
-            <li class="flex items-center">
-              <span class="text-green-600 text-xl mr-3">✔</span>
-              Sustainability Reports
-            </li>
-            <li class="flex items-center">
-              <span class="text-green-600 text-xl mr-3">✔</span>
-              Competitive Prices
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-
-<section class="text-gray-600 body-font relative">
-    <div class="container px-5 py-24 mx-auto flex sm:flex-nowrap flex-wrap">
-      <div class="lg:w-full md:w-full bg-gray-300 rounded-lg overflow-hidden p-10 flex items-end justify-start relative" style="height: 500px;">
-        <iframe
-          width="100%"
-          height="100%"
-          class="absolute inset-0"
-          frameborder="0"
-          title="map"
-          marginheight="0"
-          marginwidth="0"
-          scrolling="no"
-          src="https://maps.google.com/maps?width=100%&height=600&hl=en&q=Biratnagar-13,%20Nepal&ie=UTF8&t=&z=14&iwloc=B&output=embed"
-          style="filter: grayscale(1) contrast(1.2) opacity(0.7);">
-        </iframe>
-        <div class="bg-white relative flex flex-wrap py-3 px-3 rounded shadow-md">
-          <div class="lg:w-1/2">
-            <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs">ADDRESS</h2>
-            <p class="mt-1 text-sm">Biratnagar-13, Nepal   </p>
-          </div>
-          <div class="lg:w-1/2 mt-2">
-            <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs">EMAIL</h2>
-            <a href="mailto:example@email.com" class="text-indigo-500 leading-relaxed text-sm">example@email.com</a>
-            <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs mt-4">PHONE</h2>
-            <p class="leading-relaxed text-sm">123-456-7890</p>
+          <!-- Card 4 -->
+          <div class="bg-white text-gray-800 p-6 rounded-lg shadow-lg w-72 transition-transform transform hover:scale-105 hover:shadow-2xl">
+            <img src="./images/eco.png" alt="Eco-friendly" class="mx-auto mb-4">
+            <h3 class="text-lg font-semibold text-center">Eco-friendly</h3>
+            <p class="text-sm text-center mt-2">We ensure responsible recycling of your scrap items.</p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- Households & Businesses Section -->
+    <section class="py-16 bg-blue-50">
+      <div class="container mx-auto text-center">
+        <h2 class="text-3xl font-bold text-green-600 mb-12">
+          Households & Businesses have different needs <br>
+          and we cater to each of them
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          <!-- For Households -->
+          <div class="text-left px-8">
+            <h3 class="text-xl font-semibold text-gray-800 mb-4">For Households</h3>
+            <ul class="space-y-4">
+              <li class="flex items-center">
+                <span class="text-green-600 text-xl mr-3">✔</span>
+                On-Demand Doorstep Pickups
+              </li>
+              <li class="flex items-center">
+                <span class="text-green-600 text-xl mr-3">✔</span>
+                Accurate Digital Weighing
+              </li>
+              <li class="flex items-center">
+                <span class="text-green-600 text-xl mr-3">✔</span>
+                Safety (Trained & Verified Staff)
+              </li>
+            </ul>
+          </div>
+          <div class="flex justify-center">
+            <img src="./images/home.png" alt="Households" class="w-64 h-auto" />
+          </div>
+          <!-- For Businesses -->
+          <div class="flex justify-center">
+            <img src="./images/bus.png" alt="Businesses" class="w-64 h-auto" />
+          </div>
+          <div class="text-left px-8">
+            <h3 class="text-xl font-semibold text-gray-800 mb-4">For Businesses</h3>
+            <ul class="space-y-4">
+              <li class="flex items-center">
+                <span class="text-green-600 text-xl mr-3">✔</span>
+                Formal Payments & Documentation
+              </li>
+              <li class="flex items-center">
+                <span class="text-green-600 text-xl mr-3">✔</span>
+                Sustainability Reports
+              </li>
+              <li class="flex items-center">
+                <span class="text-green-600 text-xl mr-3">✔</span>
+                Competitive Prices
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="text-gray-600 body-font relative">
+      <div class="container px-5 py-24 mx-auto flex sm:flex-nowrap flex-wrap">
+        <div class="lg:w-full md:w-full bg-gray-300 rounded-lg overflow-hidden p-10 flex items-end justify-start relative" style="height: 500px;">
+          <iframe width="100%" height="100%" class="absolute inset-0" frameborder="0" title="map" marginheight="0" marginwidth="0" scrolling="no" src="https://maps.google.com/maps?width=100%&height=600&hl=en&q=Biratnagar-13,%20Nepal&ie=UTF8&t=&z=14&iwloc=B&output=embed" style="filter: grayscale(1) contrast(1.2) opacity(0.7);"></iframe>
+          <div class="bg-white relative flex flex-wrap py-3 px-3 rounded shadow-md">
+            <div class="lg:w-1/2">
+              <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs">ADDRESS</h2>
+              <p class="mt-1 text-sm">Biratnagar-13, Nepal</p>
+            </div>
+            <div class="lg:w-1/2 mt-2">
+              <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs">EMAIL</h2>
+              <p class="text-sm text-gray-500">trashonline@domain.com</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
 </body>
+
 </html>
-
-
-
-
-
-
-
-
