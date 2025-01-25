@@ -5,7 +5,6 @@
   <!-- Meta Information -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="./images/ss.png" type="image/x-icon">
   <title>TrashOnline</title>
 
   <!-- Tailwind CSS -->
@@ -22,25 +21,21 @@
     <!-- Header Section -->
     <header id="header" class="bg-green-100 shadow-md w-full z-10">
       <div class="container mx-auto flex items-center justify-between px-4 py-4 bg-green-100">
-        
-        <!-- Logo -->
-        <div id="logo" class="flex items-center space-x-2">
-          <img src="./images/ss.png" alt="Logo" class="h-10 w-10 object-cover">
-          <span class="font-bold text-lg text-gray-800">TrashOnline</span>
-        </div>
-
-        <!-- Navigation Menu -->
-        <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
-          <a class="mr-5 nav-link hover-underline" href="home">Home</a>
-          <a class="mr-5 nav-link hover-underline" href="index">Schedule Pickup</a>
-          <a class="mr-5 nav-link hover-underline" href="waste">Waste Details</a>
-          <a class="mr-5 nav-link hover-underline" href="blogpost">Blogs</a>
-          <a class="mr-5 nav-link hover-underline" href="dashboard">Dashboard</a>
-          <a class="mr-5 nav-link hover-underline" href="contacts">Contact Us</a>
-        </nav>
+          <div id="logo" class="flex items-center space-x-2">
+              <img src="./images/ss.png" alt="Logo" class="h-10 w-10 object-cover">
+              <span class="font-bold text-lg text-gray-800">TrashOnline</span>
+          </div>
+          <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+              <a class="mr-5 text-gray-800" href="home">Home</a>
+              <a class="mr-5 text-gray-800" href="index">Schedule Pickup</a>
+              <a class="mr-5 text-gray-800 " href="waste">Waste Details</a>
+              <a class="mr-5 text-gray-800 " href="blogpost">Blogs</a>
+              <a class="mr-5 text-gray-800 " href="dashboard">Dashboard</a>
+              <a class="mr-5 text-gray-800 " href="contacts">Contact Us</a>
+              <a class="mr-5 text-gray-800 " href="logout">Logout</a>
+          </nav>
       </div>
     </header>
-
     <!-- Hero Section -->
 <div class="bg-green.50from-green-300 via-blue-300 to-purple-400 flex items-center justify-center h-screen py-3">
     <div class="container mx-auto flex items-center justify-between px-4 py-8 md:py-16">
@@ -66,7 +61,7 @@
       <!-- Right Side (Image) -->
       <div class="lg:w-1/3 md:w-1/2 mt-6 md:mt-0">
         <div class="relative">
-          <img src="./images/scrap.png" alt="Recycling Process" class="rounded-lg shadow-lg object-cover transform hover:scale-110 transition-all" style="width: 100%; height: 100%;">
+          <img src="./images/scrap.png" alt="Recycling Process" class="rounded-lg shadow-lg object-cover transform hover:scale-110 transition-all" style="width: 100%; height: !00%;">
           <!-- Floating Icon on Image -->
           <div class="absolute top-5 left-5 bg-yellow-400 text-white text-3xl font-bold py-2 px-4 rounded-full shadow-lg">
             ♻️
@@ -234,47 +229,43 @@
     </section>
 
   </div>
-  <script>
-  // Mock payment form script
-function processPayment() {
-    let cardNumber = document.getElementById('card-number').value;
-    let expiryDate = document.getElementById('expiry-date').value;
-    let cvv = document.getElementById('cvv').value;
-    let cardHolder = document.getElementById('card-holder').value;
+  <!-- Footer Section -->
+<footer class="bg-green-200 text-gray-800 py-10">
+  <div class="container mx-auto flex flex-col md:flex-row justify-between items-center px-6">
+      
+      <!-- Sustainability Commitment Section -->
+      <div class="mb-6 md:mb-0 text-center md:text-left">
+          <h2 class="font-extrabold text-2xl mb-3 text-gray-700">Our Mission</h2>
+          <p class="text-sm leading-loose">At TrashOnline, we're on a mission to revolutionize waste management. We offer easy, efficient, and environmentally friendly solutions to ensure a cleaner planet for future generations.</p>
+      </div>
+      
+      <!-- Quick Links Section -->
+      <div class="mb-6 md:mb-0 text-center">
+          <h2 class="font-bold text-xl text-gray-700 mb-3">Quick Links</h2>
+          <ul class="space-y-2 text-sm">
+              <li><a href="home" class="hover:text-green-500 transition-colors duration-200">Home</a></li>
+              <li><a href="index" class="hover:text-green-500 transition-colors duration-200">Schedule Pickup</a></li>
+              <li><a href="waste" class="hover:text-green-500 transition-colors duration-200">Waste Details</a></li>
+              <li><a href="blogpost" class="hover:text-green-500 transition-colors duration-200">Blogs</a></li>
+              <li><a href="dashboard" class="hover:text-green-500 transition-colors duration-200">Dashboard</a></li>
+              <li><a href="contacts" class="hover:text-green-500 transition-colors duration-200">Contact Us</a></li>
+          </ul>
+      </div>
+      
+      <!-- Contact Info Section -->
+      <div class="text-center md:text-right">
+          <h2 class="font-bold text-xl text-gray-700 mb-3">Contact Info</h2>
+          <p class="text-sm leading-loose">Email: info@trashonline.com</p>
+          <p class="text-sm leading-loose">Phone: +977-123-4567</p>
+          <p class="text-sm leading-loose">Address: 123 Green Street, Kosi Zone, Nepal</p>
+      </div>
+      
+  </div>
+  <div class="mt-6 text-sm text-center text-gray-600">
+      © 2025 TrashOnline. All rights reserved.
+  </div>
+</footer>
 
-    if (cardNumber && expiryDate && cvv && cardHolder) {
-        alert('Payment processing simulated successfully!');
-    } else {
-        alert('Please fill out all fields.');
-    }
-}
-
-// Subscription process script
-function subscribe(packName) {
-    // Simulate subscription process
-    document.getElementById('subscribed-content').classList.remove('hidden');
-    document.getElementById('pack-name').innerText = packName;
-}
-
-// PayPal Integration
-paypal.Buttons({
-    createOrder: function(data, actions) {
-        return actions.order.create({
-            purchase_units: [{
-                amount: {
-                    value: '0.01' // Replace with the actual amount
-                }
-            }]
-        });
-    },
-    onApprove: function(data, actions) {
-        return actions.order.capture().then(function(details) {
-            alert('Transaction completed by ' + details.payer.name.given_name);
-            // Handle post-payment actions here
-        });
-    }
-}).render('#paypal-button-container');
-</script>
 </body>
 
 </html>
