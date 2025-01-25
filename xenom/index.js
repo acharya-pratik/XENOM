@@ -115,7 +115,7 @@ app.get('/appointments', authMiddleware, (req, res) => {
 app.get('/home', authMiddleware, (req, res) => {
     res.render('home', { user: req.session.user });
 });
-/hello
+//hello
 
 // 🔹 Example of Applying Auth Middleware to Another Route
 app.get('/someProtectedRoute', authMiddleware, (req, res) => {
