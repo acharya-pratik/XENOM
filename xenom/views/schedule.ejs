@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Waste Collection Schedule</title>
+</head>
+<body>
+    <h2>Scheduled Waste Collections</h2>
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Contact</th>
+            <th>Time</th>
+            <th>Location</th>
+            <th>Waste Type</th>
+            <th>Collector Type</th>
+            <th>Weather</th>
+            <th>Weight (kg)</th>
+            <th>Notes</th>
+        </tr>
+        <% schedules.forEach(schedule => { %>
+            <tr>
+                <td><%= schedule.name %></td>
+                <td><%= schedule.contact %></td>
+                <td><%= schedule.time %></td>
+                <td><%= schedule.location %></td>
+                <td><%= schedule.wasteType %></td>
+                <td><%= schedule.collectorType %></td>
+                <td><%= schedule.weather %></td>
+                <td><%= schedule.weight %></td>
+                <td><%= schedule.notes %></td>
+            </tr>
+        <% }) %>
+    </table>
+    <a href="/">Schedule Another</a>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Schedule Waste Collection</title>
+</head>
+<body>
+    <h2>Schedule a Waste Collection</h2>
+    <form action="/schedule" method="POST">
+        <input type="text" name="name" placeholder="Full Name" required><br>
+        <input type="text" name="contact" placeholder="Contact Number" required><br>
+        <input type="datetime-local" name="time" required><br>
+        <input type="text" name="location" placeholder="Location" required><br>
+
+        <label>Type of Waste:</label>
+        <select name="wasteType">
+            <option>Plastic</option>
+            <option>Metals</option>
+            <option>Electronics</option>
+            <option>Glass</option>
+            <option>Organic</option>
+        </select><br>
+
+        <label>Collector Type:</label>
+        <select name="collectorType">
+            <option>Local</option>
+            <option>Business</option>
+        </select><br>
+
+        <label>Weather Condition:</label>
+        <select name="weather">
+            <option>Sunny</option>
+            <option>Rainy</option>
+            <option>Cloudy</option>
+            <option>Stormy</option>
+        </select><br>
+
+        <input type="number" name="weight" placeholder="Approximate Weight (kg)" required><br>
+
+        <textarea name="notes" placeholder="Additional Notes (Optional)"></textarea><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <a href="/schedule">View Scheduled Collections</a>
+</body>
+</html>
