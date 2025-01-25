@@ -5,6 +5,58 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Eco Waste Collection Service</title>
   <script src="https://cdn.tailwindcss.com"></script> <!-- Tailwind CDN -->
+  <style>
+     .transition-all {
+            transition: all 0.3s ease;
+        }
+
+        .hover\:scale-105:hover {
+            transform: scale(1.05);
+        }body {
+            background-image: url('https://cdn.pixabay.com/photo/2016/11/29/04/17/checklist-1867744_1280.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .bg-custom {
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
+        }
+        .gradient-bg {
+            background: linear-gradient(90deg, rgba(58,123,213,1) 0%, rgba(0,210,255,1) 100%);
+            transition: background 0.3s ease;
+        }
+        .gradient-bg:hover {
+            background: linear-gradient(90deg, rgba(0,210,255,1) 0%, rgba(58,123,213,1) 100%);
+        }
+        .fitconnect-logo {
+            width: 100px;
+            height: auto;
+            display: block;
+            margin: 0 auto 20px;
+        }
+        .hover-shadow-lg:hover {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            transform: translateY(-5px);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .hover-shadow-lg {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .dropdown-enter-active,
+        .dropdown-leave-active {
+            transition: opacity 0.5s, transform 0.5s;
+        }
+        .dropdown-enter,
+        .dropdown-leave-to {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+
+
+  </style>
 </head>
 <body class="bg-gray-50 font-sans">
   <!-- Header Section -->
