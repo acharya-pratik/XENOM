@@ -12,6 +12,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 app.set('view engine', 'ejs');
+app.use(express.static("public"));
 
 const User = require('./models/users.js');
 const Login = require('./models/logina.js');

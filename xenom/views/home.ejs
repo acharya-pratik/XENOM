@@ -1,348 +1,410 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+  <!-- Meta Information -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eco Waste Collection Service</title>
-  <script src="https://cdn.tailwindcss.com"></script> <!-- Tailwind CDN -->
-  <style>
-     .transition-all {
-            transition: all 0.3s ease;
-        }
+  <title>TrashOnline</title>
 
-        .hover\:scale-105:hover {
-            transform: scale(1.05);
-        }body {
-            background-image: url('https://cdn.pixabay.com/photo/2016/11/29/04/17/checklist-1867744_1280.jpg');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-        .bg-custom {
-            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
-        }
-        .gradient-bg {
-            background: linear-gradient(90deg, rgba(58,123,213,1) 0%, rgba(0,210,255,1) 100%);
-            transition: background 0.3s ease;
-        }
-        .gradient-bg:hover {
-            background: linear-gradient(90deg, rgba(0,210,255,1) 0%, rgba(58,123,213,1) 100%);
-        }
-        .fitconnect-logo {
-            width: 100px;
-            height: auto;
-            display: block;
-            margin: 0 auto 20px;
-        }
-        .hover-shadow-lg:hover {
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-            transform: translateY(-5px);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .hover-shadow-lg {
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .dropdown-enter-active,
-        .dropdown-leave-active {
-            transition: opacity 0.5s, transform 0.5s;
-        }
-        .dropdown-enter,
-        .dropdown-leave-to {
-            opacity: 0;
-            transform: translateY(-20px);
-        }
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-
-  </style>
+  <!-- Remixicon for Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
 </head>
-<body class="bg-gray-50 font-sans">
-  <!-- Header Section -->
-  <header class="text-gray-600 body-font bg-green-300">
-    <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-        <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-            <img src="https://img.icons8.com/color/96/factory.png" alt="TrashOnline Logo" class="w-10 h-10">
-            <span class="ml-3 text-2xl font-semibold">TrashOnline</span>
-        </a>
-        <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
-            <a class="mr-5 nav-link hover-underline" href="home">Home</a>
-            <a class="mr-5 nav-link hover-underline" href="schedule-pickup">Schedule Pickup</a>
-            <a class="mr-5 nav-link hover-underline" href="waste">Waste Details</a>
-            <a class="nav-link hover-underline" href="contacts">Contact Us</a>
+
+<body class="bg-blue-50 text-gray-800">
+  <!-- Main Container -->
+  <div id="main" class="min-h-screen flex flex-col">
+    
+    <!-- Header Section -->
+    <header id="header" class="bg-green-50 shadow-md fixed w-full z-10 ">
+      <div class="container mx-auto flex items-center justify-between px-4 py-4 bg-green-50">
+        
+        <!-- Logo -->
+        <div id="logo" class="flex items-center space-x-2">
+          <!-- Change "ss.png" to your logo file path -->
+          <img src="./images/ss.png" alt="Logo" class="h-10 w-10 object-cover">
+          <span class="font-bold text-lg text-gray-800">TrashOnline</span>
+        </div>
+
+        <!-- Navigation Menu -->
+      
+          <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+            <a class="mr-9 nav-link hover-underline hover:text-blue-600 font-medium transition-transform transform hover:scale-150 hover:shadow-md" href="home">Home</a>
+            <a class="mr-9 nav-link hover-underline hover:text-blue-600 font-medium transition-transform transform hover:scale-150 hover:shadow-md" href="schedule-pickup">Schedule Pickup</a>
+            <a class="mr-9 nav-link hover-underline hover:text-blue-600 font-medium transition-transform transform hover:scale-150 hover:shadow-md" href="waste">Waste Details</a>
+            <a class="nav-link hover-underline hover:text-blue-600 font-medium transition-transform transform hover:scale-150 hover:shadow-md" href="contacts">Contact Us</a>
         </nav>
-    </div>
-</header>
+          
+      </div>
+    </header>
+    <div class="bg-transparent flex items-center justify-center h-auto ">
 
+      <div id="ecoTips" class="bg-green-200 text-green-900 text-lg font-semibold p-6 rounded-lg shadow-lg text-center w-3/4 md:w-1/2">
+          Loading Tips...
+      </div>
+      <script>
+          const ecoTips = [
+              "Use a reusable water bottle.",
+              "Say no to plastic bags.",
+              "Turn off lights when not needed.",
+              "Use both sides of paper.",
+              "Recycle old newspapers.",
+              "Carry a cloth shopping bag.",
+              "Compost food scraps.",
+              "Donate old clothes.",
+              "Avoid plastic straws.",
+              "Use rechargeable batteries.",
+              "Reduce food waste.",
+              "Buy in bulk to reduce packaging.",
+              "Use a digital notebook.",
+              "Bring your own coffee cup.",
+              "Walk or bike instead of driving.",
+              "Use cloth napkins instead of paper.",
+              "Fix broken things instead of throwing them away.",
+              "Unplug devices when not in use.",
+              "Use bar soap instead of liquid soap.",
+              "Choose glass containers over plastic.",
+              "Say no to unnecessary receipts.",
+              "Refill water bottles instead of buying new ones.",
+              "Use a bamboo toothbrush.",
+              "Print only when needed.",
+              "Avoid disposable utensils.",
+              "Turn off the tap while brushing your teeth.",
+              "Upcycle old items.",
+              "Encourage recycling at work or school.",
+              "Plant a tree.",
+              "Teach others about reducing waste.",
+              "Use a reusable water bottle.",
+              "Say no to plastic bags.",
+              "Turn off lights when not needed.",
+              "Use both sides of paper.",
+              "Recycle old newspapers.",
+              "Carry a cloth shopping bag.",
+              "Compost food scraps.",
+              "Donate old clothes.",
+              "Avoid plastic straws.",
+              "Use rechargeable batteries.",
+              "Reduce food waste.",
+              "Buy in bulk to reduce packaging.",
+              "Use a digital notebook.",
+              "Bring your own coffee cup.",
+              "Walk or bike instead of driving.",
+              "Use cloth napkins instead of paper.",
+              "Fix broken things instead of throwing them away.",
+              "Unplug devices when not in use.",
+              "Use bar soap instead of liquid soap.",
+              "Choose glass containers over plastic.",
+              "Say no to unnecessary receipts.",
+              "Refill water bottles instead of buying new ones.",
+              "Use a bamboo toothbrush.",
+              "Print only when needed.",
+              "Avoid disposable utensils.",
+              "Turn off the tap while brushing your teeth.",
+              "Upcycle old items.",
+              "Encourage recycling at work or school.",
+              "Plant a tree.",
+              "Teach others about reducing waste.",
+              "Use energy-efficient light bulbs.",
+              "Opt for digital media instead of physical copies.",
+              "Donate or sell old furniture.",
+              "Buy clothes secondhand.",
+              "Choose products with minimal packaging.",
+              "Use rechargeable coffee pods.",
+              "Use natural fibers instead of synthetic fabrics.",
+              "Create a DIY compost bin.",
+              "Start a vegetable garden.",
+              "Use eco-friendly cleaning products.",
+              "Switch to a natural deodorant.",
+              "Reduce water usage with low-flow showerheads.",
+              "Choose eco-friendly furniture made from recycled materials.",
+              "Avoid fast fashion—buy quality, timeless items.",
+              "Participate in local clean-up events.",
+              "Buy items in bulk to minimize packaging waste.",
+              "Switch to cloth diapers instead of disposable ones.",
+              "Repurpose glass jars as storage containers.",
+              "Make your own eco-friendly cleaning products.",
+              "Avoid plastic cutlery and plates—use reusable ones.",
+              "Opt for cloth or bamboo towels instead of paper towels.",
+              "Avoid single-use razors—choose a safety razor.",
+              "Use reusable beeswax wraps instead of plastic wrap.",
+              "Repurpose old boxes for storage or shipping.",
+              "Use public transport instead of driving.",
+              "Avoid using bottled shampoo—switch to bar soap.",
+              "Use eco-friendly paint that’s low in VOCs.",
+              "Start a carpool with friends or coworkers.",
+              "Recycle e-waste properly.",
+              "Switch to natural, sustainable fabrics like organic cotton.",
+              "Use eco-friendly diapers or cloth diapers.",
+              "Practice minimalism—don’t buy things you don’t need.",
+              "Reduce your meat consumption for a lower carbon footprint.",
+              "Choose products made with sustainably sourced wood.",
+              "Avoid products with excessive plastic packaging.",
+              "Grow your own herbs instead of buying them.",
+              "Use online banking instead of paper checks.",
+              "Make use of old paper by turning it into art or notes.",
+              "Use natural pest control methods in your garden.",
+              "Avoid single-use plastic in the kitchen by using glass containers.",
+              "Bring your own containers for takeout food.",
+              "Use digital documents instead of printing.",
+              "Repair items instead of replacing them.",
+              "Try DIY repairs for household items.",
+              "Choose products with biodegradable materials.",
+              "Use a clothesline instead of a dryer to save energy.",
+              "Support companies that focus on sustainability.",
+              "Join a local food co-op or bulk buying group.",
+              "Buy organic, locally produced food to reduce transportation emissions.",
+              "Support businesses that use renewable energy.",
+              "Invest in a solar-powered charger.",
+              "Use eco-friendly toothpaste with no plastic packaging.",
+              "Opt for a stainless steel razor instead of disposable razors.",
+              "Switch to eco-friendly cleaning products.",
+              "Use cloth napkins instead of paper napkins.",
+              "Buy products made from recycled materials.",
+              "Repair or restore old electronics instead of buying new ones.",
+              "Choose renewable energy sources for your home.",
+              "Support local farmers by buying seasonal produce.",
+              "Use reusable silicone bags instead of plastic ones.",
+              "Participate in community clean-up events and encourage others to join."
+          ];
+  
+          function updateTip() {
+              const tipIndex = Math.floor(Math.random() * ecoTips.length);
+              document.getElementById("ecoTips").innerText = ecoTips[tipIndex];
+          }
+  
+          // Initial call and setting interval to update every 5 seconds
+          updateTip();
+          setInterval(updateTip, 5000);
+      </script>
+  </div>
 
-  <!-- Order Text Section -->
-  <section class="lg:flex p-8 gap-8 items-center min-h-screen">
-    <div class="lg:w-1/2 text-left space-y-6">
-      <h1 class="text-4xl font-bold">Eco-friendly Waste Management</h1>
-      <p class="text-lg text-gray-700">We help you manage your waste in an eco-friendly and efficient way. Reduce, reuse, and recycle with our simple solutions.</p>
-      <button class="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700">Get Started</button>
-    </div>
-    <div class="lg:w-1/2">
-      <div id="carousel" class="w-full h-96 bg-gray-300 overflow-hidden relative">
-        <img id="carouselImage" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1563805042-7684ff735d66" alt="Waste Collection Image">
-      </div>
-    </div>
-  </section>
+    <div class="container px-5 mx-auto mt-8 flex justify-start">
+        <!-- Replace "ss.png" with the actual path to your image -->
+         
+       
+    
+    <!-- Hero Section -->
+    <section class="text-gray-800 body-font bg-blue-50 pt-24">
+      <div class="container px-5 mx-auto flex flex-wrap items-center">
+        
+        <!-- Text Section -->
+        <div class="lg:w-2/3 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
+          <h1 class="title-font font-medium text-5xl text-blue-900 leading-tight">
+            Sell your recyclables<br>and trash<br>
+            online in <span class="text-green-600">TrashOnline!</span>
+          </h1>
+          <p class="leading-relaxed mt-4 text-2xl font-semibold ">
+            <b>Paper - Plastics - Metals - Appliances</b>
+          </p>
+          
+        </div>
 
-  <!-- How It Works Section -->
-  <section id="howItWorks" class="p-8 bg-green-100 min-h-screen">
-    <h2 class="text-3xl font-semibold text-center mb-6">How It Works?</h2>
-    <div class="flex justify-around space-x-6 py-16">
-      <div class="flex flex-col items-center bg-white p-6 rounded-lg shadow-lg w-1/3">
-        <img src="https://images.unsplash.com/photo-1586769852836-8e9f35e8d52a" alt="Schedule" class="mb-4">
-        <h3 class="text-xl font-semibold">Schedule</h3>
-        <p class="text-center text-gray-600">Pick a convenient time for waste pickup.</p>
-      </div>
-      <div class="flex flex-col items-center bg-white p-6 rounded-lg shadow-lg w-1/3">
-        <img src="https://images.unsplash.com/photo-1501076857620-c0e9f1d3b6c0" alt="Pickup" class="mb-4">
-        <h3 class="text-xl font-semibold">Pickup</h3>
-        <p class="text-center text-gray-600">We come to your doorstep to collect the waste.</p>
-      </div>
-      <div class="flex flex-col items-center bg-white p-6 rounded-lg shadow-lg w-1/3">
-        <img src="https://images.unsplash.com/photo-1556745757-8d76bdb6984b" alt="Payment" class="mb-4">
-        <h3 class="text-xl font-semibold">Payment</h3>
-        <p class="text-center text-gray-600">Pay easily via our secure payment gateway.</p>
-      </div>
-    </div>
-  </section>
+    
+<div> <img src="./images/logo.webp" alt="Recycling Process" 
+        class="rounded-lg shadow-lg" 
+        style="width: 1000px; height: 400px; margin-top: 20px;"></div>
+       
+ </div>
 
-  <!-- Benefits Section (Decreased height) -->
-  <section class="bg-gray-200 p-8 min-h-[500px]">
-    <h2 class="text-3xl font-semibold text-center mb-6">Why Choose Us?</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 py-24">
-      <div class="bg-white p-6 rounded-lg shadow-lg">
-        <h3 class="text-xl font-semibold mb-2">Environmentally Friendly</h3>
-        <p class="text-gray-600">We follow sustainable waste management practices to protect the planet.</p>
-      </div>
-      <div class="bg-white p-6 rounded-lg shadow-lg">
-        <h3 class="text-xl font-semibold mb-2">Affordable Plans</h3>
-        <p class="text-gray-600">Our services are priced fairly to suit your budget, with no hidden fees.</p>
-      </div>
-      <div class="bg-white p-6 rounded-lg shadow-lg">
-        <h3 class="text-xl font-semibold mb-2">Convenient Service</h3>
-        <p class="text-gray-600">Schedule pickups at your convenience, and we’ll handle the rest.</p>
-      </div>
-    </div>
-  </section>
+ 
+       
 
-  <!-- Testimonials Section (Increased to 6 testimonials, 3 per row) -->
-<section id="testimonials" class="bg-gray-100 p-8 min-h-screen">
-    <h2 class="text-3xl font-semibold text-center mb-6">What Our Clients Say</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div class="flex flex-col items-center bg-white p-6 rounded-lg shadow-lg">
-        <p class="text-gray-600 italic">"Great service! They always show up on time and take care of everything."</p>
-        <h4 class="mt-4 text-xl font-semibold">John Doe</h4>
-        <p class="text-gray-500">Business Owner</p>
+      <!-- Image Section -->
+       
+      
+    </section>
+
+  
+  </div>
+</body>
+
+<section class="text-gray-600 body-font">
+    <div class="container px-5 py-24 mx-auto">
+      <div class="flex flex-col">
+        <div class="h-1 bg-gray-200 rounded overflow-hidden"></div>
+        <div class="flex flex-wrap sm:flex-row flex-col py-6 mb-12">
+          <h1 class="sm:w-2/5 text-gray-900 font-medium title-font text-2xl mb-2 sm:mb-0 transition-transform transform hover:scale-105 hover:text-blue-600">Our Services</h1>
+        </div>
       </div>
-      <div class="flex flex-col items-center bg-white p-6 rounded-lg shadow-lg">
-        <p class="text-gray-600 italic">"Convenient, eco-friendly, and reliable. Couldn't ask for better waste management."</p>
-        <h4 class="mt-4 text-xl font-semibold">Jane Smith</h4>
-        <p class="text-gray-500">Homeowner</p>
-      </div>
-      <div class="flex flex-col items-center bg-white p-6 rounded-lg shadow-lg">
-        <p class="text-gray-600 italic">"Love that they offer an environmentally conscious solution to waste collection."</p>
-        <h4 class="mt-4 text-xl font-semibold">Mary Johnson</h4>
-        <p class="text-gray-500">Sustainability Advocate</p>
-      </div>
-      <div class="flex flex-col items-center bg-white p-6 rounded-lg shadow-lg">
-        <p class="text-gray-600 italic">"A fantastic service that makes waste disposal easier and eco-friendly."</p>
-        <h4 class="mt-4 text-xl font-semibold">David Lee</h4>
-        <p class="text-gray-500">Tech Entrepreneur</p>
-      </div>
-      <div class="flex flex-col items-center bg-white p-6 rounded-lg shadow-lg">
-        <p class="text-gray-600 italic">"Efficient, reliable, and sustainable—what more could you ask for?"</p>
-        <h4 class="mt-4 text-xl font-semibold">Sarah Brown</h4>
-        <p class="text-gray-500">Family Home</p>
-      </div>
-      <div class="flex flex-col items-center bg-white p-6 rounded-lg shadow-lg">
-        <p class="text-gray-600 italic">"I love the timely pickups and the eco-conscious approach they follow."</p>
-        <h4 class="mt-4 text-xl font-semibold">Paul Miller</h4>
-        <p class="text-gray-500">Small Business Owner</p>
+      <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
+        <div class="p-4 md:w-1/3 sm:mb-0 mb-6">
+          <div class="rounded-lg h-64 overflow-hidden transition-transform transform hover:scale-90 hover:shadow-xl hover:border-blue-500">
+            <img alt="content" class="object-cover object-center h-full w-full" src="./images/sch.jpeg">
+          </div>
+          <h2 class="text-xl font-medium title-font text-gray-900 mt-5 transition-transform transform hover:scale-105 hover:text-blue-600">Schedule a Pickup</h2>
+          <p class="text-base leading-relaxed mt-2 transition-transform transform hover:scale-90 hover:text-blue-600">Schedule your pickupn at just a click away from you.</p>
+          <a class="text-indigo-500 inline-flex items-center mt-3 transition-transform transform hover:scale-105 hover:text-blue-600">Learn More
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+        <div class="p-4 md:w-1/3 sm:mb-0 mb-6">
+          <div class="rounded-lg h-64 overflow-hidden transition-transform transform hover:scale-90 hover:shadow-xl hover:border-blue-500">
+            <img alt="content" class="object-cover object-center h-full w-full" src="./images/s.webp">
+          </div>
+          <h2 class="text-xl font-medium title-font text-gray-900 mt-5 transition-transform transform hover:scale-105 hover:text-blue-600">Pickup at your address</h2>
+          <p class="text-base leading-relaxed mt-2 transition-transform transform hover:scale-90 hover:text-blue-600">Give your address where should we come to pickup</p>
+          <a class="text-indigo-500 inline-flex items-center mt-3 transition-transform transform hover:scale-105 hover:text-blue-600">Learn More
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+        <div class="p-4 md:w-1/3 sm:mb-0 mb-6">
+          <div class="rounded-lg h-64 overflow-hidden transition-transform transform hover:scale-90 hover:shadow-xl hover:border-blue-500">
+            <img alt="content" class="object-cover object-center h-full w-full" src="./images/pay.jpg">
+          </div>
+          <h2 class="text-xl font-medium title-font text-gray-900 mt-5 transition-transform transform hover:scale-105 hover:text-blue-600">Payment</h2>
+          <p class="text-base leading-relaxed mt-2 transition-transform transform hover:scale-105 hover:text-blue-600">Pay online and help to keep the city clean</p>
+          <a class="text-indigo-500 inline-flex items-center mt-3 transition-transform transform hover:scale-105 hover:text-blue-600">Learn More
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
       </div>
     </div>
   </section>
   
 
-  <!-- Call To Action -->
-  <section class="bg-green-600 text-white py-16 h-500">
-    <div class="text-center">
-      <h2 class="text-3xl font-semibold mb-6">Join Us in Protecting the Planet!</h2>
-      <p class="text-lg mb-8">Start managing your waste more effectively today with our easy and eco-friendly service.</p>
-      <button class="bg-white text-green-600 px-6 py-3 rounded-lg hover:bg-gray-200">Sign Up Now</button>
+<section class="bg-blue-300 text-white py-16">
+    <div class="container mx-auto text-center">
+      <h2 class="text-4xl font-bold mb-12 text-black">Why Us</h2>
+      <div class="flex flex-wrap justify-center gap-8">
+        <!-- Card 1 -->
+        <div class="bg-white text-gray-800 p-6 rounded-lg shadow-lg w-72 transition-transform transform hover:scale-105 hover:shadow-2xl">
+          <img src="./images/rate.png" alt="Best Rates" class="mx-auto mb-4">
+          <h3 class="text-lg font-semibold text-center">Best Rates</h3>
+          <p class="text-sm text-center mt-2">We provide the best value for your scrap from our network of Recyclers.</p>
+        </div>
+        <!-- Card 2 -->
+        <div class="bg-white text-gray-800 p-6 rounded-lg shadow-lg w-72 transition-transform transform hover:scale-105 hover:shadow-2xl">
+          <img src="./images/ok.png" alt="Convenience" class="mx-auto mb-4">
+          <h3 class="text-lg font-semibold text-center">Convenience</h3>
+          <p class="text-sm text-center mt-2">Doorstep pickup according to user's convenient date & time.</p>
+        </div>
+        <!-- Card 3 -->
+        <div class="bg-white text-gray-800 p-6 rounded-lg shadow-lg w-72 transition-transform transform hover:scale-105 hover:shadow-2xl">
+          <img src="./images/trust.png" alt="Trust" class="mx-auto mb-4">
+          <h3 class="text-lg font-semibold text-center">Trust</h3>
+          <p class="text-sm text-center mt-2">Trained & Verified Pickup Staff with Smart Weighing Scale.</p>
+        </div>
+        <!-- Card 4 -->
+        <div class="bg-white text-gray-800 p-6 rounded-lg shadow-lg w-72 transition-transform transform hover:scale-105 hover:shadow-2xl">
+          <img src="./images/eco.png" alt="Eco-friendly" class="mx-auto mb-4">
+          <h3 class="text-lg font-semibold text-center">Eco-friendly</h3>
+          <p class="text-sm text-center mt-2">We ensure responsible recycling of your scrap items.</p>
+        </div>
+      </div>
     </div>
   </section>
+  
+  
 
-  <!-- Footer Section -->
-  <footer id="footer" class="bg-green-600 text-white p-6">
-    <div class="flex justify-between items-center">
-      <div>&copy; 2025 Eco Waste Collection</div>
-      <div> <a href="#" class="hover:underline">Privacy Policy</a> | <a href="#" class="hover:underline">Terms of Service</a> </div>
+
+  <section class="py-16 bg-blue-50">
+    <div class="container mx-auto text-center">
+      <h2 class="text-3xl font-bold text-green-600 mb-12">
+        Households & Businesses have different needs <br>
+        and we cater to each of them
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <!-- For Households -->
+        <div class="text-left px-8">
+          <h3 class="text-xl font-semibold text-gray-800 mb-4">For Households</h3>
+          <ul class="space-y-4">
+            <li class="flex items-center">
+              <span class="text-green-600 text-xl mr-3">✔</span>
+              On-Demand Doorstep Pickups
+            </li>
+            <li class="flex items-center">
+              <span class="text-green-600 text-xl mr-3">✔</span>
+              Accurate Digital Weighing
+            </li>
+            <li class="flex items-center">
+              <span class="text-green-600 text-xl mr-3">✔</span>
+              Safety (Trained & Verified Staff)
+            </li>
+          </ul>
+        </div>
+        <div class="flex justify-center">
+          <img
+            src="./images/home.png"
+            alt="Households"
+            class="w-64 h-auto"
+          />
+        </div>
+        <!-- For Businesses -->
+        <div class="flex justify-center">
+          <img
+            src="./images/bus.png"
+            alt="Businesses"
+            class="w-64 h-auto"
+          />
+        </div>
+        <div class="text-left px-8">
+          <h3 class="text-xl font-semibold text-gray-800 mb-4">For Businesses</h3>
+          <ul class="space-y-4">
+            <li class="flex items-center">
+              <span class="text-green-600 text-xl mr-3">✔</span>
+              Formal Payments & Documentation
+            </li>
+            <li class="flex items-center">
+              <span class="text-green-600 text-xl mr-3">✔</span>
+              Sustainability Reports
+            </li>
+            <li class="flex items-center">
+              <span class="text-green-600 text-xl mr-3">✔</span>
+              Competitive Prices
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
-  </footer>
+  </section>
+  
 
-  <!-- JavaScript for Carousel -->
-  <script>
-    const images = [
-      "https://images.unsplash.com/photo-1563805042-7684ff735d66",
-      "https://images.unsplash.com/photo-1586769852836-8e9f35e8d52a",
-      "https://images.unsplash.com/photo-1501076857620-c0e9f1d3b6c0",
-      "https://images.unsplash.com/photo-1556745757-8d76bdb6984b"
-    ];
-    let currentImageIndex = 0;
-
-    function changeImage() {
-      currentImageIndex = (currentImageIndex + 1) % images.length;
-      document.getElementById('carouselImage').src = images[currentImageIndex];
-    }
-
-    setInterval(changeImage, 5000); // Change image every 5 seconds
-  </script>
-=======      
-        <div class="bg-transparent flex items-center justify-center h-auto ">
-
-            <div id="ecoTips" class="bg-green-200 text-green-900 text-lg font-semibold p-6 rounded-lg shadow-lg text-center w-3/4 md:w-1/2">
-                Loading Tips...
-        <script>
-            const ecoTips = [
-                "Use a reusable water bottle.",
-                "Say no to plastic bags.",
-                "Turn off lights when not needed.",
-                "Use both sides of paper.",
-                "Recycle old newspapers.",
-                "Carry a cloth shopping bag.",
-                "Compost food scraps.",
-                "Donate old clothes.",
-                "Avoid plastic straws.",
-                "Use rechargeable batteries.",
-                "Reduce food waste.",
-                "Buy in bulk to reduce packaging.",
-                "Use a digital notebook.",
-                "Bring your own coffee cup.",
-                "Walk or bike instead of driving.",
-                "Use cloth napkins instead of paper.",
-                "Fix broken things instead of throwing them away.",
-                "Unplug devices when not in use.",
-                "Use bar soap instead of liquid soap.",
-                "Choose glass containers over plastic.",
-                "Say no to unnecessary receipts.",
-                "Refill water bottles instead of buying new ones.",
-                "Use a bamboo toothbrush.",
-                "Print only when needed.",
-                "Avoid disposable utensils.",
-                "Turn off the tap while brushing your teeth.",
-                "Upcycle old items.",
-                "Encourage recycling at work or school.",
-                "Plant a tree.",
-                "Teach others about reducing waste.",
-                "Use a reusable water bottle.",
-                "Say no to plastic bags.",
-                "Turn off lights when not needed.",
-                "Use both sides of paper.",
-                "Recycle old newspapers.",
-                "Carry a cloth shopping bag.",
-                "Compost food scraps.",
-                "Donate old clothes.",
-                "Avoid plastic straws.",
-                "Use rechargeable batteries.",
-                "Reduce food waste.",
-                "Buy in bulk to reduce packaging.",
-                "Use a digital notebook.",
-                "Bring your own coffee cup.",
-                "Walk or bike instead of driving.",
-                "Use cloth napkins instead of paper.",
-                "Fix broken things instead of throwing them away.",
-                "Unplug devices when not in use.",
-                "Use bar soap instead of liquid soap.",
-                "Choose glass containers over plastic.",
-                "Say no to unnecessary receipts.",
-                "Refill water bottles instead of buying new ones.",
-                "Use a bamboo toothbrush.",
-                "Print only when needed.",
-                "Avoid disposable utensils.",
-                "Turn off the tap while brushing your teeth.",
-                "Upcycle old items.",
-                "Encourage recycling at work or school.",
-                "Plant a tree.",
-                "Teach others about reducing waste.",
-                "Use energy-efficient light bulbs.",
-                "Opt for digital media instead of physical copies.",
-                "Donate or sell old furniture.",
-                "Buy clothes secondhand.",
-                "Choose products with minimal packaging.",
-                "Use rechargeable coffee pods.",
-                "Use natural fibers instead of synthetic fabrics.",
-                "Create a DIY compost bin.",
-                "Start a vegetable garden.",
-                "Use eco-friendly cleaning products.",
-                "Switch to a natural deodorant.",
-                "Reduce water usage with low-flow showerheads.",
-                "Choose eco-friendly furniture made from recycled materials.",
-                "Avoid fast fashion—buy quality, timeless items.",
-                "Participate in local clean-up events.",
-                "Buy items in bulk to minimize packaging waste.",
-                "Switch to cloth diapers instead of disposable ones.",
-                "Repurpose glass jars as storage containers.",
-                "Make your own eco-friendly cleaning products.",
-                "Avoid plastic cutlery and plates—use reusable ones.",
-                "Opt for cloth or bamboo towels instead of paper towels.",
-                "Avoid single-use razors—choose a safety razor.",
-                "Use reusable beeswax wraps instead of plastic wrap.",
-                "Repurpose old boxes for storage or shipping.",
-                "Use public transport instead of driving.",
-                "Avoid using bottled shampoo—switch to bar soap.",
-                "Use eco-friendly paint that’s low in VOCs.",
-                "Start a carpool with friends or coworkers.",
-                "Recycle e-waste properly.",
-                "Switch to natural, sustainable fabrics like organic cotton.",
-                "Use eco-friendly diapers or cloth diapers.",
-                "Practice minimalism—don’t buy things you don’t need.",
-                "Reduce your meat consumption for a lower carbon footprint.",
-                "Choose products made with sustainably sourced wood.",
-                "Avoid products with excessive plastic packaging.",
-                "Grow your own herbs instead of buying them.",
-                "Use online banking instead of paper checks.",
-                "Make use of old paper by turning it into art or notes.",
-                "Use natural pest control methods in your garden.",
-                "Avoid single-use plastic in the kitchen by using glass containers.",
-                "Bring your own containers for takeout food.",
-                "Use digital documents instead of printing.",
-                "Repair items instead of replacing them.",
-                "Try DIY repairs for household items.",
-                "Choose products with biodegradable materials.",
-                "Use a clothesline instead of a dryer to save energy.",
-                "Support companies that focus on sustainability.",
-                "Join a local food co-op or bulk buying group.",
-                "Buy organic, locally produced food to reduce transportation emissions.",
-                "Support businesses that use renewable energy.",
-                "Invest in a solar-powered charger.",
-                "Use eco-friendly toothpaste with no plastic packaging.",
-                "Opt for a stainless steel razor instead of disposable razors.",
-                "Switch to eco-friendly cleaning products.",
-                "Use cloth napkins instead of paper napkins.",
-                "Buy products made from recycled materials.",
-                "Repair or restore old electronics instead of buying new ones.",
-                "Choose renewable energy sources for your home.",
-                "Support local farmers by buying seasonal produce.",
-                "Use reusable silicone bags instead of plastic ones.",
-                "Participate in community clean-up events and encourage others to join."
-            ];
-    
-            function updateTip() {
-                const tipIndex = Math.floor(Math.random() * ecoTips.length);
-                document.getElementById("ecoTips").innerText = ecoTips[tipIndex];
-            }
-    
-            // Initial call and setting interval to update every 5 seconds
-            updateTip();
-            setInterval(updateTip, 5000);
-        </script>
+<section class="text-gray-600 body-font relative">
+    <div class="container px-5 py-24 mx-auto flex sm:flex-nowrap flex-wrap">
+      <div class="lg:w-full md:w-full bg-gray-300 rounded-lg overflow-hidden p-10 flex items-end justify-start relative" style="height: 500px;">
+        <iframe
+          width="100%"
+          height="100%"
+          class="absolute inset-0"
+          frameborder="0"
+          title="map"
+          marginheight="0"
+          marginwidth="0"
+          scrolling="no"
+          src="https://maps.google.com/maps?width=100%&height=600&hl=en&q=Biratnagar-13,%20Nepal&ie=UTF8&t=&z=14&iwloc=B&output=embed"
+          style="filter: grayscale(1) contrast(1.2) opacity(0.7);">
+        </iframe>
+        <div class="bg-white relative flex flex-wrap py-3 px-3 rounded shadow-md">
+          <div class="lg:w-1/2">
+            <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs">ADDRESS</h2>
+            <p class="mt-1 text-sm">Biratnagar-13, Nepal   </p>
+          </div>
+          <div class="lg:w-1/2 mt-2">
+            <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs">EMAIL</h2>
+            <a href="mailto:example@email.com" class="text-indigo-500 leading-relaxed text-sm">example@email.com</a>
+            <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs mt-4">PHONE</h2>
+            <p class="leading-relaxed text-sm">123-456-7890</p>
+          </div>
+        </div>
+      </div>
     </div>
->>>>>>> ba9f420212b9dd20622a5ed04d69bd4111699cdd
+  </section>
 </body>
 </html>
+
+
+
+
+
+
+
+
