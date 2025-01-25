@@ -15,7 +15,7 @@ app.set('view engine', 'ejs');
 
 const User = require('./models/users.js');
 const Login = require('./models/logina.js');
-
+const Schedule = require('./models/Schedule');
 mongoose.connect(process.env.MONGODB_URI, 
     { useNewUrlParser: true, useUnifiedTopology: true }) 
     .then(() => console.log('Database connected')) 
@@ -127,6 +127,38 @@ app.get('/logout', (req, res) => {
         res.redirect('/login'); // Redirect to login after logout
     });
 });
+
+app.get('/index', (req, res) => {
+    res.render('index');});
+
+
+    app.post('/schedule', async (req, res) => {
+        const { name, contact, time, location, wasteType, collectorType, weather, weight, notes } = req.body;
+        await Schedule.create({ name, contact, time, location, wasteType, collectorType, weather, weight, notes });
+        res.redirect('/');  // Redirect back to the form after submission
+    });
+    // Display Scheduled Collections
+    app.get('/schedule', async (req, res) => {
+        const schedules = await Schedule.find();
+        res.render('schedule', { schedules });
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 app.listen(3000, () => {
     console.log('Server is running on port 3000');
