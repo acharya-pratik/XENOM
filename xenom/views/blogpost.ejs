@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trash2Cash Blogs</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .hover-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-r from-green-50 to-gray-100 min-h-screen flex flex-col"></body>
+
+  <!-- Header -->
+  <header class="text-gray-600 body-font bg-green-300 w-full">
+      <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+          <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+              <img src="https://img.icons8.com/color/96/factory.png" alt="TrashOnline Logo" class="w-10 h-10">
+              <span class="ml-3 text-2xl font-semibold">TrashOnline</span>
+          </a>
+          <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+              <a class="mr-5 nav-link hover-underline" href="home">Home</a>
+              <a class="mr-5 nav-link hover-underline" href="schedule-pickup">Schedule Pickup</a>
+              <a class="mr-5 nav-link hover-underline" href="waste">Waste Details</a>
+              <a class="nav-link hover-underline" href="contacts">Contact Us</a>
+          </nav>
+      </div>
+  </header>
+
+  <!-- Search & Filter -->
+  <section class="w-full bg-white shadow-md py-6 px-8">
+    <div class="container mx-auto flex flex-col md:flex-row items-center justify-between">
+      <input
+        type="text"
+        id="search"
+        placeholder="Search blogs..."
+        class="w-full md:w-2/3 p-4 border rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 mb-4 md:mb-0"
+      />
+      <select
+        id="filterCategory"
+        class="w-full md:w-1/3 p-4 border rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500"
+      >
+        <option value="all">All Categories</option>
+        <option value="RECYCLING">Recycling</option>
+        <option value="SUSTAINABILITY">Sustainability</option>
+        <option value="ENVIRONMENT">Environment</option>
+      </select>
+    </div>
+  </section>
+
+  <!-- Blog Cards Section -->
+  <section class="w-full text-gray-600 body-font py-16">
+    <div class="container mx-auto px-5">
+      <div id="blog-cards" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-center"></div>
+      <div id="pagination" class="mt-8 flex justify-center"></div>
+    </div>
+  </section>
+
+  <script>
+    // Simulated API data
+    const blogData = [
+      {
+        date: { month: "Jan", day: 5 },
+        category: "RECYCLING",
+        title: "Recycling Initiatives",
+        description: "Discover practical ways to recycle everyday items and reduce landfill waste. This blog explores innovative recycling techniques and how you can contribute to a cleaner planet.",
+        author: "Author 1",
+        platform: "TrashOnline",
+        image: "https://media.istockphoto.com/id/1199683640/photo/conveyor-belt-for-recyclables-in-waste-processing-facility.webp?a=1&b=1&s=612x612&w=0&k=20&c=6rdoUkhGeUhuyAT4aRqJahUztndW1zkGbLzPZKp8ZRQ="
+      },
+      {
+        date: { month: "Feb", day: 12 },
+        category: "SUSTAINABILITY",
+        title: "Sustainability in Daily Life",
+        description: "Dive into the world of sustainability with actionable tips to lead an eco-friendly lifestyle. Learn how small changes can make a big impact on preserving our natural resources.",
+        author: "Author 2",
+        platform: "TrashOnline",
+        image: "https://media.istockphoto.com/id/1317713882/photo/eco-energy-concept.webp?a=1&b=1&s=612x612&w=0&k=20&c=po7LrHLTQ9aby98OseATiSfCiUU3P3tTEjzOf6zYnm4="
+      },
+      {
+        date: { month: "Mar", day: 8 },
+        category: "ENVIRONMENT",
+        title: "Environmental Challenges",
+        description: "Understand the latest environmental challenges and breakthroughs. This post highlights initiatives aimed at protecting biodiversity and combating climate change.",
+        author: "Author 3",
+        platform: "TrashOnline",
+        image: "https://media.istockphoto.com/id/1344923073/photo/a-lake-in-the-shape-of-human-footprints-in-the-middle-of-a-lush-forest-as-a-metaphor-for-the.webp?a=1&b=1&s=612x612&w=0&k=20&c=1FuSkOgRUGVOOq0yZrzf5pf9rvZ_A1ixpDpVHlJMgPU="
+      },
+      {
+        date: { month: "Apr", day: 18 },
+        category: "INNOVATIVE SOLUTIONS",
+        title: "Innovative Waste Solutions",
+        description: "From turning waste into energy to creative upcycling ideas, explore how innovation is transforming trash into valuable resources.",
+        author: "Author 4",
+        platform: "TrashOnline",
+        image: "https://media.istockphoto.com/id/2164088083/photo/eye-digital-data-ai-artificial-intelligence-and-program-code.webp?s=1024x1024&w=is&k=20&c=EQ1Fk-ZHRwVwA2h5IEsMnL6tMIavuGadDgPuMdBQ2sc="
+      },
+      {
+        date: { month: "May", day: 22 },
+        category: "COMMUNITY IMPACT",
+        title: "Community-Driven Sustainability",
+        description: "Learn how local communities are driving change through sustainable practices and inspiring others to embrace eco-friendly habits.",
+        author: "Author 5",
+        platform: "TrashOnline",
+        image: "https://plus.unsplash.com/premium_photo-1683972509783-da5a74795bb3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8Y29tbXVuaXR5JTIwdXNlcnN8ZW58MHx8MHx8fDA%3D"
+      },
+      
+      {
+        date: { month: "Jun", day: 10 },
+        category: "CIRCULAR ECONOMY",
+        title: "The Circular Economy",
+        description: "Unpack the concept of a circular economy where waste is minimized, resources are reused, and sustainability thrives.",
+        author: "Author 6",
+        platform: "TrashOnline",
+        image: "https://plus.unsplash.com/premium_photo-1679728130451-ebba4dc5307d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8Y2lyY3VsYXIlMjBlY29ub215fGVufDB8fDB8fHww"
+      }
+    ];
+
+    // State variables
+    let currentPage = 1;
+    const itemsPerPage = 6;
+    let filteredData = blogData;
+
+    // Function to render blog cards
+    function renderBlogCards() {
+      const blogContainer = document.getElementById("blog-cards");
+      blogContainer.innerHTML = ""; // Clear previous content
+
+      const startIndex = (currentPage - 1) * itemsPerPage;
+      const endIndex = startIndex + itemsPerPage;
+      const blogsToShow = filteredData.slice(startIndex, endIndex);
+
+      blogsToShow.forEach(blog => {
+        const card = document.createElement("div");
+        card.className =
+          "hover-card max-w-sm bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-transform duration-300 overflow-hidden";
+
+        card.innerHTML = `
+          <!-- Image Section -->
+          <div class="relative">
+            <img src="${blog.image}" alt="${blog.title}" class="w-full h-48 object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-70"></div>
+            <div class="absolute bottom-4 left-4 text-white">
+              <span class="text-sm font-medium">${blog.date.month} ${blog.date.day}</span>
+            </div>
+          </div>
+          <!-- Content Section -->
+          <div class="p-6">
+            <span class="text-sm text-green-500 font-semibold">${blog.category}</span>
+            <h2 class="text-lg font-bold text-gray-800 mt-2">${blog.title}</h2>
+            <p class="text-gray-600 text-sm mt-2">${blog.description}</p>
+            <div class="flex items-center mt-4">
+              <span class="text-sm font-medium text-gray-700">By ${blog.author}</span>
+              <span class="text-sm text-gray-400 ml-auto">${blog.platform}</span>
+            </div>
+          </div>
+        `;
+
+        blogContainer.appendChild(card);
+      });
+    }
+
+    // Function to render pagination
+    function renderPagination() {
+      const paginationContainer = document.getElementById("pagination");
+      paginationContainer.innerHTML = "";
+
+      const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+
+      for (let i = 1; i <= totalPages; i++) {
+        const pageButton = document.createElement("button");
+        pageButton.textContent = i;
+        pageButton.className = `mx-1 px-4 py-2 rounded-xl ${
+          i === currentPage
+            ? "bg-green-500 text-white"
+            : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+        }`;
+
+        pageButton.addEventListener("click", () => {
+          currentPage = i;
+          renderBlogCards();
+          renderPagination();
+        });
+
+        paginationContainer.appendChild(pageButton);
+      }
+    }
+
+    // Event listeners for search and filter
+    document.getElementById("search").addEventListener("input", (event) => {
+      const searchTerm = event.target.value.toLowerCase();
+      filteredData = blogData.filter((blog) =>
+        blog.title.toLowerCase().includes(searchTerm)
+      );
+      currentPage = 1;
+      renderBlogCards();
+      renderPagination();
+    });
+
+    document.getElementById("filterCategory").addEventListener("change", (event) => {
+      const category = event.target.value;
+      filteredData =
+        category === "all"
+          ? blogData
+          : blogData.filter((blog) => blog.category === category);
+      currentPage = 1;
+      renderBlogCards();
+      renderPagination();
+    });
+
+    // Initial render
+    renderBlogCards();
+    renderPagination();
+  </script>
+</body>
+</html>

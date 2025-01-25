@@ -25,12 +25,6 @@
         .gradient-bg:hover {
             background: linear-gradient(90deg, rgba(0,210,255,1) 0%, rgba(58,123,213,1) 100%);
         }
-        .fitconnect-logo {
-            width: 100px;
-            height: auto;
-            display: block;
-            margin: 0 auto 20px;
-        }
         .hover-shadow-lg:hover {
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
             transform: translateY(-5px);
@@ -56,25 +50,25 @@
     <header class="text-gray-600 body-font rounded-md gradient-bg">
         <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
             <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-                <img src="https://img.icons8.com/color/96/factory.png" alt="TrashOnline Logo" class="w-10 h-10">
+                <img src="https://img.freepik.com/premium-vector/ecofriendly-waste-unique-logo-design-featuring-organic-natural-trash-elements_579306-40447.jpg" alt="TrashOnline Logo" class="w-14 h-14">
                 <span class="ml-3 text-2xl font-semibold">TrashOnline</span>
             </a>
             <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
                 <a class="mr-5 nav-link hover-underline" href="home">Home</a>
                 <a class="mr-5 nav-link hover-underline" href="schedule-pickup">Schedule Pickup</a>
-                <a class="mr-5 nav-link hover-underline" href="waste.html">Waste Details</a>
-                <a class="nav-link hover-underline" href="contacts.html">Contact Us</a>
+                <a class="mr-5 nav-link hover-underline" href="waste">Waste Details</a>
+                <a class="nav-link hover-underline" href="contacts">Contact Us</a>
             </nav>
         </div>
     </header>
    
     <div class="min-h-screen flex items-center justify-center">
-        <div class="bg-custom p-12 rounded-lg shadow-lg w-full max-w-lg">
-            <img src="https://img.icons8.com/color/96/factory.png" alt="TrashOnline" class="fitconnect-logo">
-            <h2 class="text-3xl font-bold mb-6 text-blue-900 text-center">Login</h2>
+        <div class="bg-custom p-12 rounded-lg shadow-lg w-full max-w-lg text-center">
+            <img src="https://img.freepik.com/premium-vector/ecofriendly-waste-unique-logo-design-featuring-organic-natural-trash-elements_579306-40447.jpg" alt="TrashOnline Logo" class="w-32 h-auto mx-auto mb-6">
+            <h2 class="text-3xl font-bold mb-6 text-blue-900">Login</h2>
             
             <% if (typeof error !== 'undefined') { %>
-                <p class="text-red-600 text-center mb-4"><%= error %></p>
+                <p class="text-red-600 mb-4"><%= error %></p>
             <% } %>
             
             <form action="/login" method="POST">
@@ -88,7 +82,7 @@
                 </div>
                 <button type="submit" class="w-full text-white px-4 py-2 rounded-md gradient-bg">Login</button>
             </form>
-            <div class="mt-4 text-center">
+            <div class="mt-4">
                 <a href="/register" class="text-blue-600 hover:underline">Register</a>
             </div>
         </div>
