@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
     <title>Schedule Waste Collection</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
 </head>
-<body>
+<body class="bg-gray-100">
     <header class="text-gray-600 body-font bg-green-300">
         <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
             <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
@@ -14,49 +15,73 @@
                 <a class="mr-5 nav-link hover-underline" href="home">Home</a>
                 <a class="mr-5 nav-link hover-underline" href="schedule-pickup">Schedule Pickup</a>
                 <a class="mr-5 nav-link hover-underline" href="waste">Waste Details</a>
-                <a class="nav-link hover-underline" href="blogpost">Blogs</a>
-                <a class="nav-link hover-underline" href="contacts">Contact Us</a>
-                
+                <a class="mr-5 nav-link hover-underline" href="blogpost">Blogs</a>
+                <a class="mr-5 nav-link hover-underline" href="contacts">Contact Us</a>
             </nav>
         </div>
     </header>
-    <h2>Schedule a Waste Collection</h2>
-    <form action="/schedule" method="POST">
-        <input type="text" name="name" placeholder="Full Name" required><br>
-        <input type="text" name="contact" placeholder="Contact Number" required><br>
-        <input type="datetime-local" name="time" required><br>
-        <input type="text" name="location" placeholder="Location" required><br>
 
-        <label>Type of Waste:</label>
-        <select name="wasteType">
-            <option>Plastic</option>
-            <option>Metals</option>
-            <option>Electronics</option>
-            <option>Glass</option>
-            <option>Organic</option>
-        </select><br>
+    <div class="container mx-auto my-5 p-5 bg-white rounded-lg shadow-md">
+        <h2 class="text-3xl font-bold mb-4">Schedule a Waste Collection</h2>
+        <form action="/schedule" method="POST" class="space-y-4">
+            <div>
+                <label class="block text-gray-700">Full Name</label>
+                <input type="text" name="name" placeholder="Full Name" required class="w-full p-2 border border-gray-300 rounded">
+            </div>
+            <div>
+                <label class="block text-gray-700">Contact Number</label>
+                <input type="text" name="contact" placeholder="Contact Number" required class="w-full p-2 border border-gray-300 rounded">
+            </div>
+            <div>
+                <label class="block text-gray-700">Preferred Time</label>
+                <input type="datetime-local" name="time" required class="w-full p-2 border border-gray-300 rounded">
+            </div>
+            <div>
+                <label class="block text-gray-700">Location</label>
+                <input type="text" name="location" placeholder="Location" required class="w-full p-2 border border-gray-300 rounded">
+            </div>
+            <div>
+                <label class="block text-gray-700">Type of Waste</label>
+                <select name="wasteType" class="w-full p-2 border border-gray-300 rounded">
+                    <option>Plastic</option>
+                    <option>Metals</option>
+                    <option>Electronics</option>
+                    <option>Glass</option>
+                    <option>Organic</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-gray-700">Collector Type</label>
+                <select name="collectorType" class="w-full p-2 border border-gray-300 rounded">
+                    <option>Local</option>
+                    <option>Business</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-gray-700">Weather Condition</label>
+                <select name="weather" class="w-full p-2 border border-gray-300 rounded">
+                    <option>Sunny</option>
+                    <option>Rainy</option>
+                    <option>Cloudy</option>
+                    <option>Stormy</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-gray-700">Approximate Weight (kg)</label>
+                <input type="number" name="weight" placeholder="Approximate Weight (kg)" required class="w-full p-2 border border-gray-300 rounded">
+            </div>
+            <div>
+                <label class="block text-gray-700">Additional Notes (Optional)</label>
+                <textarea name="notes" placeholder="Additional Notes" class="w-full p-2 border border-gray-300 rounded"></textarea>
+            </div>
+            <button type="submit" class="w-full p-2 text-white bg-green-500 rounded">Submit</button>
+        </form>
+    </div>
 
-        <label>Collector Type:</label>
-        <select name="collectorType">
-            <option>Local</option>
-            <option>Business</option>
-        </select><br>
-
-        <label>Weather Condition:</label>
-        <select name="weather">
-            <option>Sunny</option>
-            <option>Rainy</option>
-            <option>Cloudy</option>
-            <option>Stormy</option>
-        </select><br>
-
-        <input type="number" name="weight" placeholder="Approximate Weight (kg)" required><br>
-
-        <textarea name="notes" placeholder="Additional Notes (Optional)"></textarea><br>
-
-        <button type="submit">Submit</button>
-    </form>
-
-    <a href="/schedule">View Scheduled Collections</a>
+    <footer class="text-gray-600 body-font bg-green-300 mt-5">
+        <div class="container mx-auto py-4 flex flex-wrap flex-col sm:flex-row">
+            <p class="text-gray-500 sm:ml-auto sm:pl-4 sm:mt-0 mt-4">TrashOnline © 2025</p>
+        </div>
+    </footer>
 </body>
 </html>
