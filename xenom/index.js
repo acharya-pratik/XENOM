@@ -59,7 +59,7 @@ app.post('/login', async (req, res) => {
 
                 req.session.userId = user._id;
                 req.session.user = user;
-                res.redirect('/dashboard'); // Redirect to a protected page
+                res.redirect('/home'); // Redirect to a protected page
             } else {
                 console.log('Invalid password for email:', email); // Debug log
                 res.render('login', { error: 'Invalid email or password' });
@@ -76,6 +76,10 @@ app.post('/login', async (req, res) => {
 
 app.get('/register', (req, res) => {
     res.render('registration');
+});
+
+app.get('/schedule-pickup', (req, res) => {
+    res.render('schedule-pickup');
 });
 
 app.post('/register', async (req, res) => {
@@ -104,7 +108,7 @@ app.get('/appointments', authMiddleware, (req, res) => {
     res.render('appointments');
 });
 
-app.get('/dashboard', authMiddleware, (req, res) => {
+app.get('/home', authMiddleware, (req, res) => {
     res.render('home', { user: req.session.user });
 });
 
