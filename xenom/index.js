@@ -82,6 +82,10 @@ app.get('/schedule-pickup', (req, res) => {
     res.render('schedule-pickup');
 });
 
+app.get('/waste', (req, res) => {
+    res.render('waste');
+});
+
 app.post('/register', async (req, res) => {
     const { name, email, password, phone, address } = req.body;
     try {
